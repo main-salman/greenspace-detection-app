@@ -55,3 +55,11 @@ __pycache__/
 /python_scripts/build/
 /python_scripts/dist/
 /python_scripts/*.spec
+
+# Web installer artifacts
+/web-installer/
+/dist-web/
+
+# Temporary build files
+package-*.json
+*.backup
