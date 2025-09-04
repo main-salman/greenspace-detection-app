@@ -6,28 +6,38 @@ const fs = require('fs');
 // Check if Python and dependencies are available
 async function checkPythonEnvironment() {
   return new Promise((resolve) => {
-    // Check if python3 is available
-    const pythonProcess = spawn('python3', ['--version'], { stdio: 'pipe' });
+    // Check if local venv exists first
+    const venvPath = path.join(process.cwd(), 'venv');
+    const pythonPath = process.platform === 'win32' 
+      ? path.join(venvPath, 'Scripts', 'python.exe')
+      : path.join(venvPath, 'bin', 'python');
     
-    pythonProcess.on('close', (code) => {
-      if (code === 0) {
-        // Python is available, check if dependencies are installed
-        checkPythonDependencies().then(resolve);
-      } else {
-        resolve({ available: false, reason: 'Python 3 not installed' });
-      }
-    });
-    
-    pythonProcess.on('error', () => {
-      resolve({ available: false, reason: 'Python 3 not found' });
-    });
+    if (fs.existsSync(pythonPath)) {
+      // Use venv python to check dependencies
+      checkPythonDependencies(pythonPath).then(resolve);
+    } else {
+      // No venv, check system python
+      const pythonProcess = spawn('python3', ['--version'], { stdio: 'pipe' });
+      
+      pythonProcess.on('close', (code) => {
+        if (code === 0) {
+          resolve({ available: false, reason: 'Python dependencies not installed (no virtual environment)' });
+        } else {
+          resolve({ available: false, reason: 'Python 3 not installed' });
+        }
+      });
+      
+      pythonProcess.on('error', () => {
+        resolve({ available: false, reason: 'Python 3 not found' });
+      });
+    }
   });
 }
 
 // Check if required Python packages are installed
-async function checkPythonDependencies() {
+async function checkPythonDependencies(pythonPath = 'python3') {
   return new Promise((resolve) => {
-    const pythonProcess = spawn('python3', ['-c', 'import rasterio, numpy, shapely, cv2; print("OK")'], { stdio: 'pipe' });
+    const pythonProcess = spawn(pythonPath, ['-c', 'import rasterio, numpy, shapely, cv2; print("OK")'], { stdio: 'pipe' });
     
     let output = '';
     pythonProcess.stdout.on('data', (data) => {

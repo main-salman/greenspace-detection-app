@@ -43,12 +43,19 @@ async function startNextServer() {
       serverPort = await findAvailablePort();
       console.log(`Starting Next.js server on port ${serverPort}`);
       
-      const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
+      // Always run in dev mode unless we're in a properly packaged app with a build
+      const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged || !fs.existsSync(path.join(process.cwd(), '.next'));
       const nextDir = isDev ? process.cwd() : path.join(process.resourcesPath, 'app');
       
-      console.log('Environment check:', { isDev, isPackaged: app.isPackaged, NODE_ENV: process.env.NODE_ENV });
+      console.log('Environment check:', { 
+        isDev, 
+        isPackaged: app.isPackaged, 
+        NODE_ENV: process.env.NODE_ENV,
+        hasNextBuild: fs.existsSync(path.join(process.cwd(), '.next')),
+        nextDir 
+      });
       
-      // In production, we need to serve the built Next.js app
+      // Only use production mode if we have a proper build and are packaged
       if (!isDev && fs.existsSync(path.join(nextDir, '.next'))) {
         // Start Next.js production server
         const { createServer } = require('http');
