@@ -838,3 +838,66 @@ How to run locally (no cloud):
   - ✅ API now correctly reads from local cities.json file
   - ✅ Proper path resolution for project structure
 - **Impact**: Cities dropdown now loads correctly without file system errors
+
+## Automatic Output Cleanup System - 2025-01-29 ✅
+### Added Disk Space Management to Prevent Accumulation
+- **Issue**: `/public/outputs` directory accumulating large amounts of satellite processing data (100MB-1GB per city)
+- **Problem**: Over time, this leads to significant disk space usage without cleanup
+- **Solution Implemented**: Automatic cleanup system that removes old output directories on app startup
+- **Changes Made**:
+  1. **Created cleanup utility function** in `src/lib/utils.ts`:
+     - `cleanupOldOutputs()` - Removes directories older than specified age (default 24 hours)
+     - Configurable age threshold and output path
+     - Safe error handling and detailed logging
+     - Returns cleanup statistics (deleted count, errors)
+  2. **Added cleanup API route** at `src/app/api/cleanup/route.ts`:
+     - POST/GET endpoints for triggering cleanup
+     - JSON response with success status and statistics
+     - Error handling with detailed error messages
+  3. **Integrated startup cleanup** in `src/app/page.tsx`:
+     - Automatic cleanup trigger when app loads
+     - useEffect hook runs once on component mount
+     - Console logging of cleanup results and errors
+- **Key Features**:
+  - **Age-based deletion**: Removes directories older than 24 hours by default
+  - **Safe operation**: Checks directory existence before attempting cleanup
+  - **Detailed logging**: Reports deleted directories and any errors encountered
+  - **Error resilience**: Continues cleanup even if individual directories fail
+  - **Statistics tracking**: Returns count of deleted directories and error details
+- **Files Modified**:
+  - `src/lib/utils.ts` - Added cleanupOldOutputs function with fs and path imports
+  - `src/app/api/cleanup/route.ts` - New API route for cleanup operations
+  - `src/app/page.tsx` - Added cleanup call to app startup useEffect
+- **Benefits**:
+  - ✅ **Automatic disk space management** - Prevents unlimited accumulation of output files
+  - ✅ **Configurable retention** - 24-hour default with customizable age threshold
+  - ✅ **Safe cleanup** - Only removes old directories, preserves recent processing
+  - ✅ **Zero user intervention** - Runs automatically when app starts
+  - ✅ **Error resilience** - Handles cleanup failures gracefully
+  - ✅ **Audit trail** - Detailed logging of cleanup operations
+- **Impact**: App now automatically manages disk space by cleaning up old satellite processing outputs, preventing storage issues over time
+
+## Client-Side Import Error Fix - 2025-01-29 ✅
+### Fixed Node.js Module Import in Client-Side Code
+- **Issue**: Next.js build failing with "Module not found: Can't resolve 'fs'" error
+- **Root Cause**: Added Node.js `fs` and `path` imports to `src/lib/utils.ts` which is imported by client-side components
+- **Problem**: Client-side React components cannot import Node.js modules like `fs`
+- **Solution Implemented**: Moved cleanup function to server-side only API route
+- **Changes Made**:
+  1. **Removed Node.js imports from utils.ts**:
+     - Removed `import { promises as fs } from 'fs'`
+     - Removed `import path from 'path'`
+     - Removed `cleanupOldOutputs()` function from shared utils
+  2. **Moved cleanup function to API route**:
+     - Added cleanup function directly in `src/app/api/cleanup/route.ts`
+     - Kept all Node.js filesystem operations server-side only
+     - Maintained same functionality but in proper location
+- **Files Modified**:
+  - `src/lib/utils.ts` - Removed Node.js imports and cleanup function
+  - `src/app/api/cleanup/route.ts` - Added cleanup function with fs/path imports
+- **Benefits**:
+  - ✅ **Fixed build errors** - Next.js now compiles without module resolution issues
+  - ✅ **Proper separation** - Client-side utils only contain browser-safe code
+  - ✅ **Server-side functionality** - Filesystem operations properly isolated to API routes
+  - ✅ **Maintained functionality** - Cleanup system works exactly the same
+- **Impact**: App now builds and runs without errors, with cleanup functionality working correctly from server-side API route

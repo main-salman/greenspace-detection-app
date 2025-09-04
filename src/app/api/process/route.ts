@@ -18,6 +18,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Clean up all previous output directories immediately when starting new job
+    try {
+      console.log('🧹 Cleaning up previous outputs before starting new job...');
+      const cleanupResponse = await fetch(`${request.nextUrl.origin}/api/cleanup?maxAgeHours=0`, { 
+        method: 'POST' 
+      });
+      const cleanupResult = await cleanupResponse.json();
+      if (cleanupResult.success) {
+        console.log(`✅ Cleanup completed: ${cleanupResult.message}`);
+      } else {
+        console.warn('⚠️ Cleanup failed:', cleanupResult.error);
+      }
+    } catch (error) {
+      console.warn('⚠️ Cleanup error (continuing anyway):', error);
+    }
+
     // Generate unique processing ID
     const processingId = uuidv4();
     

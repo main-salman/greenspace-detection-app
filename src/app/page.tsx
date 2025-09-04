@@ -33,6 +33,28 @@ export default function Home() {
       .catch(error => console.error('Error loading cities:', error));
   }, []);
 
+  // Cleanup old output directories on app startup
+  useEffect(() => {
+    const cleanupOldOutputs = async () => {
+      try {
+        const response = await fetch('/api/cleanup?maxAgeHours=0', { method: 'POST' });
+        const result = await response.json();
+        if (result.success) {
+          console.log(`Cleanup completed: ${result.message}`);
+          if (result.errors.length > 0) {
+            console.warn('Cleanup errors:', result.errors);
+          }
+        } else {
+          console.error('Cleanup failed:', result.error);
+        }
+      } catch (error) {
+        console.error('Failed to trigger cleanup:', error);
+      }
+    };
+
+    cleanupOldOutputs();
+  }, []); // Run once on component mount
+
   // Update config when city is selected
   useEffect(() => {
     if (selectedCity) {
