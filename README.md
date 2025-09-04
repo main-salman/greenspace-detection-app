@@ -20,17 +20,15 @@ A professional desktop application for analyzing satellite imagery to detect and
 #### **For Mac Users** 🍎
 
 1. **Download the installer:**
-   - Download `greenspace-detection-web-installer.zip` (39MB) from [GitHub Releases](../../releases)
+   - Download `greenspace-detection-web-installer.zip` (132KB) from [GitHub](../../tree/main/dist-web)
 
-2. **Install:**
+2. **Install (Super Easy!):**
    ```bash
    # Extract the installer
    unzip greenspace-detection-web-installer.zip
-   cd greenspace-detection-web-installer
    
-   # Run the installation script
-   chmod +x install.sh
-   ./install.sh
+   # Double-click install.command (no Terminal needed!)
+   # Or for advanced users: ./install.sh
    ```
 
 3. **Launch:**
