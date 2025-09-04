@@ -877,6 +877,46 @@ How to run locally (no cloud):
   - ✅ **Audit trail** - Detailed logging of cleanup operations
 - **Impact**: App now automatically manages disk space by cleaning up old satellite processing outputs, preventing storage issues over time
 
+## Desktop App Issues Fixed & Ultra-Compact Installer - 2025-01-29 ✅
+### Fixed Multiple Critical Issues and Created 132KB GitHub-Compatible Installer
+- **Issues Found**: 
+  1. Web installer was 39MB with bundled cache/build files causing production build errors
+  2. Windows compatibility - no Electron window opening, 0% processing results
+  3. Python environment detection failing in packaged apps
+  4. App trying to run `next start` without `.next` build directory
+- **Root Causes**:
+  1. Web installer included entire `.next` build cache (~30MB) and venv/bin/python
+  2. Development/production mode detection was incorrect
+  3. Installer used production mode without proper build
+  4. Python path resolution failing in different environments
+- **Solution Implemented**: Complete rewrite of web installer approach
+- **Changes Made**:
+  1. **Ultra-Minimal Web Installer (132KB)**:
+     - Removed all build artifacts and cache files
+     - Excludes venv completely - creates fresh environment on install
+     - Uses development mode (no build required)
+     - Downloads dependencies during installation
+  2. **Fixed Installation Process**:
+     - Proper Mac/Windows installation scripts
+     - Automatic Node.js and Python dependency setup
+     - Desktop shortcut creation
+     - Launch scripts use `npm run dev` instead of `npm run start`
+  3. **Improved Error Handling**:
+     - Prerequisites checking (Node.js, Python)
+     - Clear error messages and troubleshooting
+     - Proper virtual environment activation
+  4. **Cross-Platform Support**:
+     - install.sh for Mac/Linux with proper bash scripting
+     - install.bat for Windows with cmd scripting
+     - Platform-specific launch commands
+- **Results**:
+  - **File Size**: Reduced from 39MB to **132KB** (99.7% reduction!)
+  - **GitHub Compatible**: ✅ WAY under 100MB limit
+  - **Functionality**: ✅ All features working (health API, cleanup API, processing)
+  - **Installation**: ✅ Automated setup with desktop shortcuts
+  - **Cross-Platform**: ✅ Mac and Windows support
+- **Impact**: Created the most compact possible distribution while maintaining full functionality and user experience
+
 ## Client-Side Import Error Fix - 2025-01-29 ✅
 ### Fixed Node.js Module Import in Client-Side Code
 - **Issue**: Next.js build failing with "Module not found: Can't resolve 'fs'" error
