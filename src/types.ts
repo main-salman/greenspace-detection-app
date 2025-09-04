@@ -125,6 +125,7 @@ export interface ProcessingStatus {
     outputFiles: string[];
     summary?: VegetationSummary; // Enhanced summary data (single run)
     annualComparison?: AnnualComparison; // Annual comparison summary when annualMode
+    changeVisualization?: any; // Change visualization data
     previews?: { label: string; image: string; month: number; year: number; type: 'baseline' | 'compare'; veg?: number; cloud?: number; highPct?: number; medPct?: number; lowPct?: number; cityName?: string }[]; // monthly previews
     batchSummaries?: CityAnnualSummary[]; // multi-city summaries
   };
@@ -158,4 +159,8 @@ export interface ProcessingResult {
   lowDensityPercentage: number;
   outputFiles: string[];
   summary?: VegetationSummary; // Add satellite bounds data
+  changeVisualization?: any; // Change visualization data
+  annualComparison?: any; // Annual comparison data
+  previews?: any[]; // Preview data
+  batchSummaries?: any[]; // Batch processing summaries
 } 

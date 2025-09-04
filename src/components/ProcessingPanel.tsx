@@ -140,8 +140,8 @@ export default function ProcessingPanel({ status }: ProcessingPanelProps) {
                   </div>
                   <div className="grid grid-cols-12 gap-1 text-center text-xs mb-3">
                     {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => {
-                      const hasBaseline = cityPreviews.some((p) => p.month === m && p.type === 'baseline');
-                      const hasCompare = cityPreviews.some((p) => p.month === m && p.type === 'compare');
+                      const hasBaseline = cityPreviews.some((p: any) => p.month === m && p.type === 'baseline');
+                      const hasCompare = cityPreviews.some((p: any) => p.month === m && p.type === 'compare');
                       const state = hasBaseline && hasCompare ? 'both' : hasBaseline ? 'baseline' : hasCompare ? 'compare' : 'none';
                       const bg = state === 'both' ? 'bg-green-500' : state === 'baseline' ? 'bg-green-300' : state === 'compare' ? 'bg-blue-300' : 'bg-gray-200';
                       return (
@@ -154,7 +154,7 @@ export default function ProcessingPanel({ status }: ProcessingPanelProps) {
                   </div>
                   <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
                     {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => {
-                      const pref = cityPreviews.find(p => p.month === m && p.type === 'compare') || cityPreviews.find(p => p.month === m && p.type === 'baseline');
+                                             const pref = cityPreviews.find((p: any) => p.month === m && p.type === 'compare') || cityPreviews.find((p: any) => p.month === m && p.type === 'baseline');
                       if (!pref) {
                         return (
                           <div key={m} className="border border-dashed border-gray-200 rounded bg-white h-32 flex items-center justify-center text-xs text-gray-400">
@@ -162,8 +162,8 @@ export default function ProcessingPanel({ status }: ProcessingPanelProps) {
                           </div>
                         );
                       }
-                      const baseline = cityPreviews.find(x => x.month===m && x.type==='baseline')?.image;
-                      const compare = cityPreviews.find(x => x.month===m && x.type==='compare')?.image;
+                                             const baseline = cityPreviews.find((x: any) => x.month===m && x.type==='baseline')?.image;
+                       const compare = cityPreviews.find((x: any) => x.month===m && x.type==='compare')?.image;
                       return (
                         <div key={m} className="border border-gray-200 rounded overflow-hidden bg-gray-50 cursor-pointer" onClick={() => setCompareModal({ month: m, baseline, compare })}>
                           <div className="text-xs text-gray-600 px-2 py-1 border-b flex justify-between"><span>{pref.label}</span><span className={pref.type==='baseline'?'text-green-700':'text-blue-700'}>{pref.type}</span></div>

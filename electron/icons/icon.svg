@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="#4CAF50" stroke="#2E7D32" stroke-width="8"/>
+  
+  <!-- Earth/Globe representation -->
+  <circle cx="256" cy="256" r="180" fill="#81C784" stroke="#388E3C" stroke-width="4"/>
+  
+  <!-- Vegetation/leaves -->
+  <path d="M200 180 Q220 160 240 180 Q260 160 280 180 Q300 160 320 180" 
+        stroke="#2E7D32" stroke-width="6" fill="none"/>
+  <path d="M180 220 Q200 200 220 220 Q240 200 260 220 Q280 200 300 220 Q320 200 340 220" 
+        stroke="#2E7D32" stroke-width="6" fill="none"/>
+  <path d="M200 260 Q220 240 240 260 Q260 240 280 260 Q300 240 320 260" 
+        stroke="#2E7D32" stroke-width="6" fill="none"/>
+  
+  <!-- Satellite representation -->
+  <rect x="340" y="120" width="40" height="20" fill="#FFC107" rx="4"/>
+  <path d="M320 130 L340 130 M380 130 L400 130" stroke="#FFC107" stroke-width="3"/>
+  <path d="M360 100 L360 120 M360 140 L360 160" stroke="#FFC107" stroke-width="3"/>
+  
+  <!-- Title text -->
+  <text x="256" y="380" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
+        text-anchor="middle" fill="#1B5E20">GREENSPACE</text>
+  <text x="256" y="420" font-family="Arial, sans-serif" font-size="24" 
+        text-anchor="middle" fill="#2E7D32">DETECTION</text>
+</svg>
