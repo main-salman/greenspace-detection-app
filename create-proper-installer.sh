@@ -46,9 +46,12 @@ cp postcss.config.mjs proper-installer/app/
 # Copy Python scripts (but not venv)
 cp -r python_scripts/ proper-installer/app/
 
-# Create installation scripts
-cat > proper-installer/install.sh << 'EOF'
+# Create Mac double-click installer
+cat > proper-installer/install.command << 'EOF'
 #!/bin/bash
+
+# Make sure we're in the right directory
+cd "$(dirname "$0")"
 
 echo "🌱 Installing Greenspace Detection App..."
 echo "========================================"
@@ -140,9 +143,15 @@ echo "   Or run: $INSTALL_DIR/launch.sh"
 echo ""
 echo "📝 The app will open in your default web browser"
 echo "   URL: http://localhost:3000"
+echo ""
+echo "Press any key to close this window..."
+read -n 1
 EOF
 
-chmod +x proper-installer/install.sh
+chmod +x proper-installer/install.command
+
+# Also create traditional install.sh for advanced users
+cp proper-installer/install.command proper-installer/install.sh
 
 # Create Windows installer
 cat > proper-installer/install.bat << 'EOF'
@@ -224,20 +233,22 @@ EOF
 
 # Create README
 cat > proper-installer/README.txt << 'EOF'
-# Greenspace Detection App - Web Installer
+# Greenspace Detection App - Easy Installer
 
-## Quick Start
+## Quick Start (Super Easy!)
 
-### Mac/Linux:
+### Mac:
 1. Extract this ZIP file
-2. Open Terminal and navigate to the extracted folder
-3. Run: ./install.sh
-4. Double-click "Greenspace Detection.command" on your Desktop
+2. Double-click "install.command" (no Terminal needed!)
+3. Double-click "Greenspace Detection.command" on your Desktop
 
 ### Windows:
 1. Extract this ZIP file
-2. Double-click install.bat
+2. Double-click "install.bat"
 3. Double-click "Greenspace Detection.bat" on your Desktop
+
+### Advanced Users (Mac/Linux):
+- Use install.sh if you prefer Terminal installation
 
 ## Requirements
 
