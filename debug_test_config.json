@@ -1,0 +1,30 @@
+{
+  "city": {
+    "city": "Vancouver",
+    "country": "Canada",
+    "polygon_geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-123.156738, 49.318856],
+            [-123.293917, 49.269513],
+            [-123.260958, 49.174437],
+            [-123.076937, 49.207645],
+            [-123.022006, 49.203159],
+            [-123.028872, 49.293701],
+            [-123.156738, 49.318856]
+          ]
+        ]
+      }
+    }
+  },
+  "startMonth": "07",
+  "endMonth": "07",
+  "startYear": 2020,
+  "endYear": 2020,
+  "ndviThreshold": 0.3,
+  "cloudCoverageThreshold": 20,
+  "outputDir": "debug_test_output"
+}

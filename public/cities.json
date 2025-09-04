@@ -1,0 +1,2606 @@
+[
+  {
+    "city_id": "a6a1826d-2da7-47c8-a1bd-647b1f5a08a9",
+    "country": "Canada",
+    "state_province": "Ontario",
+    "city": "Toronto",
+    "latitude": "43.6532",
+    "longitude": "-79.3832",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -79.639265,
+              43.580997
+            ],
+            [
+              -79.639265,
+              43.855457
+            ],
+            [
+              -79.116936,
+              43.855457
+            ],
+            [
+              -79.116936,
+              43.580997
+            ],
+            [
+              -79.639265,
+              43.580997
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "b2b00574-6325-40d2-8e33-a7214c324696",
+    "country": "Canada",
+    "state_province": "British Columbia",
+    "city": "Vancouver",
+    "latitude": "49.33846223557759",
+    "longitude": "-122.77206659317018",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.156738,
+              49.318856
+            ],
+            [
+              -123.293917,
+              49.269513
+            ],
+            [
+              -123.260958,
+              49.174437
+            ],
+            [
+              -123.076937,
+              49.207645
+            ],
+            [
+              -123.022006,
+              49.203159
+            ],
+            [
+              -123.028872,
+              49.293701
+            ],
+            [
+              -123.156738,
+              49.318856
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "59b2fa95-7b31-40d7-bf99-bd422a510321",
+    "country": "Mexico",
+    "state_province": "Querétaro",
+    "city": "Querétaro",
+    "latitude": "20.561087056816795",
+    "longitude": "-100.35663664340974",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -100.37487,
+              20.545687
+            ],
+            [
+              -100.406113,
+              20.534434
+            ],
+            [
+              -100.444871,
+              20.642393
+            ],
+            [
+              -100.384446,
+              20.623436
+            ],
+            [
+              -100.362816,
+              20.585837
+            ],
+            [
+              -100.356637,
+              20.561087
+            ],
+            [
+              -100.37487,
+              20.545687
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "95bc2646-3179-4fc2-9b2f-3a1048265be0",
+    "country": "Serbia",
+    "state_province": "Nišava",
+    "city": "Nis",
+    "latitude": "43.35112349727735",
+    "longitude": "21.86557710170746",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              21.874123,
+              43.351521
+            ],
+            [
+              21.847724,
+              43.317411
+            ],
+            [
+              21.899909,
+              43.291927
+            ],
+            [
+              21.920509,
+              43.294926
+            ],
+            [
+              21.963081,
+              43.328651
+            ],
+            [
+              21.900558,
+              43.351521
+            ],
+            [
+              21.874123,
+              43.351521
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "c27cefba-94af-475a-a94d-0f770b8d8691",
+    "country": "Saudi Arabia",
+    "state_province": "Al Madinah",
+    "city": "Madinah",
+    "latitude": "24.46709207247817",
+    "longitude": "39.41558718681336",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              39.440306,
+              24.54644
+            ],
+            [
+              39.567947,
+              24.585842
+            ],
+            [
+              39.729309,
+              24.578973
+            ],
+            [
+              39.727324,
+              24.449591
+            ],
+            [
+              39.64836,
+              24.362676
+            ],
+            [
+              39.490432,
+              24.375186
+            ],
+            [
+              39.415587,
+              24.467092
+            ],
+            [
+              39.440306,
+              24.54644
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "458196dd-d6d8-4543-8ab5-f03b0c09e06b",
+    "country": "Australia",
+    "state_province": "Queensland",
+    "city": "Logan",
+    "latitude": "-27.661750362818513",
+    "longitude": "152.95730352401736",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              153.115082,
+              -27.572808
+            ],
+            [
+              152.900848,
+              -27.690824
+            ],
+            [
+              152.937927,
+              -27.829361
+            ],
+            [
+              153.084869,
+              -27.792921
+            ],
+            [
+              153.154907,
+              -27.7431
+            ],
+            [
+              153.240051,
+              -27.66042
+            ],
+            [
+              153.115082,
+              -27.572808
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "cfdf7542-db20-4547-b777-74b8e757a307",
+    "country": "Ecuador",
+    "state_province": "Pichincha",
+    "city": "Quito",
+    "latitude": "-0.22260133056348672",
+    "longitude": "-78.39691400527956",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -78.519287,
+              -0.068665
+            ],
+            [
+              -78.454742,
+              -0.056305
+            ],
+            [
+              -78.446503,
+              -0.185394
+            ],
+            [
+              -78.486291,
+              -0.227655
+            ],
+            [
+              -78.498994,
+              -0.269196
+            ],
+            [
+              -78.539886,
+              -0.370786
+            ],
+            [
+              -78.585205,
+              -0.28015
+            ],
+            [
+              -78.550835,
+              -0.232118
+            ],
+            [
+              -78.519287,
+              -0.068665
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "e7b7685a-28d3-4964-bd35-5b10e102b51c",
+    "country": "India",
+    "state_province": "Odisha",
+    "city": "Bhubaneswar",
+    "latitude": "20.310792960783253",
+    "longitude": "85.88016450405121",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.81974,
+              20.315623
+            ],
+            [
+              85.784034,
+              20.237365
+            ],
+            [
+              85.864372,
+              20.205793
+            ],
+            [
+              85.880165,
+              20.310793
+            ],
+            [
+              85.81974,
+              20.315623
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "cdf78c37-b7cb-45f6-9000-742e232943af",
+    "country": "Saudi Arabia",
+    "state_province": "Riyadh",
+    "city": "Riyadh",
+    "latitude": "24.871252708576712",
+    "longitude": "46.777338981628425",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              46.63177,
+              24.970887
+            ],
+            [
+              46.538386,
+              24.841347
+            ],
+            [
+              46.601558,
+              24.684223
+            ],
+            [
+              46.480708,
+              24.636797
+            ],
+            [
+              46.780086,
+              24.446915
+            ],
+            [
+              47.433772,
+              24.729136
+            ],
+            [
+              47.436519,
+              25.020673
+            ],
+            [
+              46.777339,
+              24.871253
+            ],
+            [
+              46.63177,
+              24.970887
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "709f19ab-5bba-43f6-9f49-1fad96e50b96",
+    "country": "Thailand",
+    "state_province": "Udon Thani",
+    "city": "Udon Thani",
+    "latitude": "17.432842083437578",
+    "longitude": "102.8087228536606",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              102.791213,
+              17.435135
+            ],
+            [
+              102.765808,
+              17.419412
+            ],
+            [
+              102.765464,
+              17.389272
+            ],
+            [
+              102.752761,
+              17.383047
+            ],
+            [
+              102.756194,
+              17.370924
+            ],
+            [
+              102.784347,
+              17.355523
+            ],
+            [
+              102.816963,
+              17.365026
+            ],
+            [
+              102.826576,
+              17.379115
+            ],
+            [
+              102.825546,
+              17.39091
+            ],
+            [
+              102.808723,
+              17.432842
+            ],
+            [
+              102.791213,
+              17.435135
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "75d92395-2108-43c2-a93d-333586a19278",
+    "country": "Saudi Arabia",
+    "state_province": "Makkah",
+    "city": "Mecca",
+    "latitude": "21.35565741169411",
+    "longitude": "39.666438102722175",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              39.691157,
+              21.44516
+            ],
+            [
+              39.976802,
+              21.549936
+            ],
+            [
+              39.993281,
+              21.330075
+            ],
+            [
+              39.666438,
+              21.355657
+            ],
+            [
+              39.691157,
+              21.44516
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "95c6bb1f-9fb1-4d92-8edf-185a15f6ec96",
+    "country": "Kosovo",
+    "state_province": "Gjakova",
+    "city": "Junik",
+    "latitude": "42.4948603582827",
+    "longitude": "20.30586183071137",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.190505,
+              42.524218
+            ],
+            [
+              20.191535,
+              42.504226
+            ],
+            [
+              20.293846,
+              42.450544
+            ],
+            [
+              20.349807,
+              42.448011
+            ],
+            [
+              20.330581,
+              42.47182
+            ],
+            [
+              20.305862,
+              42.49486
+            ],
+            [
+              20.190505,
+              42.524218
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "de7985a6-1f64-47e1-b7a6-e5e702a25812",
+    "country": "United Kingdom",
+    "state_province": "England",
+    "city": "Manchester",
+    "latitude": "53.532069202053606",
+    "longitude": "-2.1394371986389165",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -2.271348,
+              53.554956
+            ],
+            [
+              -2.277528,
+              53.525169
+            ],
+            [
+              -2.276155,
+              53.459399
+            ],
+            [
+              -2.342073,
+              53.420134
+            ],
+            [
+              -2.331848,
+              53.363665
+            ],
+            [
+              -2.319338,
+              53.325875
+            ],
+            [
+              -2.195742,
+              53.367686
+            ],
+            [
+              -2.118838,
+              53.471624
+            ],
+            [
+              -2.139437,
+              53.532069
+            ],
+            [
+              -2.271348,
+              53.554956
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "105f4875-d748-46a2-bc67-a915cacf027a",
+    "country": "Jordan",
+    "state_province": "Amman",
+    "city": "Amman",
+    "latitude": "32.107951336293105",
+    "longitude": "35.895380973815925",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.769038,
+              32.028817
+            ],
+            [
+              35.851436,
+              31.828347
+            ],
+            [
+              36.161799,
+              31.760648
+            ],
+            [
+              36.098628,
+              32.028817
+            ],
+            [
+              35.895381,
+              32.107951
+            ],
+            [
+              35.769038,
+              32.028817
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "45367778-4128-4fd3-84a8-3b0de12855d9",
+    "country": "Philippines",
+    "state_province": "Benguet",
+    "city": "Baguio",
+    "latitude": "16.37015361892395",
+    "longitude": "120.5681598186493",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.542754,
+              16.434048
+            ],
+            [
+              120.631331,
+              16.427462
+            ],
+            [
+              120.634764,
+              16.361589
+            ],
+            [
+              120.56816,
+              16.370154
+            ],
+            [
+              120.542754,
+              16.434048
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "3fcff0ea-7dac-4364-a84e-86a8dd1a77d6",
+    "country": "Saudi Arabia",
+    "state_province": "Eastern Province",
+    "city": "Dammam",
+    "latitude": "26.547878921520105",
+    "longitude": "50.129392147064216",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.891813,
+              26.491354
+            ],
+            [
+              50.104673,
+              26.239114
+            ],
+            [
+              50.277708,
+              26.50856
+            ],
+            [
+              50.129392,
+              26.547879
+            ],
+            [
+              49.891813,
+              26.491354
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "f941ea0a-a1ee-42fb-82d1-2133027b4b74",
+    "country": "Serbia",
+    "state_province": "Šumadija",
+    "city": "Kragujevac",
+    "latitude": "43.99822500182626",
+    "longitude": "20.95851838588715",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.955772,
+              44.032544
+            ],
+            [
+              20.882301,
+              44.049326
+            ],
+            [
+              20.840072,
+              44.031557
+            ],
+            [
+              20.827369,
+              43.983158
+            ],
+            [
+              20.876464,
+              43.970558
+            ],
+            [
+              20.937576,
+              43.980934
+            ],
+            [
+              20.958518,
+              43.998225
+            ],
+            [
+              20.955772,
+              44.032544
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "c144ab78-f9dc-41f1-8d7a-1d1014d16937",
+    "country": "Turkey",
+    "state_province": "Bursa",
+    "city": "Nilüfer",
+    "latitude": "40.197470201087604",
+    "longitude": "29.00428712368012",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.01699,
+              40.221854
+            ],
+            [
+              28.962058,
+              40.271643
+            ],
+            [
+              28.858718,
+              40.225262
+            ],
+            [
+              28.941459,
+              40.182521
+            ],
+            [
+              29.004287,
+              40.19747
+            ],
+            [
+              29.01699,
+              40.221854
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "106ff957-d55f-4f8d-af17-aba63ebc5394",
+    "country": "Colombia",
+    "state_province": "Valle del Cauca",
+    "city": "Cali",
+    "latitude": "3.5154128563014475",
+    "longitude": "-76.48948788642885",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.592485,
+              3.557218
+            ],
+            [
+              -76.718141,
+              3.444819
+            ],
+            [
+              -76.701661,
+              3.31047
+            ],
+            [
+              -76.494981,
+              3.266597
+            ],
+            [
+              -76.451722,
+              3.324865
+            ],
+            [
+              -76.454469,
+              3.457156
+            ],
+            [
+              -76.489488,
+              3.515413
+            ],
+            [
+              -76.592485,
+              3.557218
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "4712f231-db97-40f7-838a-659c8de41c24",
+    "country": "Colombia",
+    "state_province": "Bolívar",
+    "city": "Cartagena",
+    "latitude": "10.311478193113038",
+    "longitude": "-75.63255429267885",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.500032,
+              10.530282
+            ],
+            [
+              -75.398408,
+              10.528256
+            ],
+            [
+              -75.503465,
+              10.304047
+            ],
+            [
+              -75.632554,
+              10.311478
+            ],
+            [
+              -75.500032,
+              10.530282
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "314b8510-44cd-46f0-aafe-496f82e87dd7",
+    "country": "Ecuador",
+    "state_province": "Manabí",
+    "city": "Manta",
+    "latitude": "-1.037529027905092",
+    "longitude": "-81.03027462959291",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -80.755005,
+              -1.088268
+            ],
+            [
+              -80.638962,
+              -0.91526
+            ],
+            [
+              -80.840074,
+              -0.948279
+            ],
+            [
+              -80.927964,
+              -1.058125
+            ],
+            [
+              -80.885468,
+              -1.155546
+            ],
+            [
+              -80.755005,
+              -1.088268
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "ce6543f8-da08-4d21-90f5-82fa654e8611",
+    "country": "Colombia",
+    "state_province": "Antioquia",
+    "city": "Medellin",
+    "latitude": "6.2974258196396775",
+    "longitude": "-75.49103021621706",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.635226,
+              6.32882
+            ],
+            [
+              -75.658572,
+              6.27695
+            ],
+            [
+              -75.584414,
+              6.1691
+            ],
+            [
+              -75.493777,
+              6.214154
+            ],
+            [
+              -75.49103,
+              6.297426
+            ],
+            [
+              -75.635226,
+              6.32882
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "8e94c6ab-d445-40db-9088-0aca5235aa20",
+    "country": "Ecuador",
+    "state_province": "Manabí",
+    "city": "Portoviejo",
+    "latitude": "-1.1137332430868399",
+    "longitude": "-80.31616330146791",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -80.408249,
+              -1.005884
+            ],
+            [
+              -80.545578,
+              -0.9132
+            ],
+            [
+              -80.569611,
+              -0.966751
+            ],
+            [
+              -80.545578,
+              -1.212525
+            ],
+            [
+              -80.384216,
+              -1.172022
+            ],
+            [
+              -80.297699,
+              -1.123967
+            ],
+            [
+              -80.408249,
+              -1.005884
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "6bc5cc69-4ab5-418b-a37a-c6a6b8b00113",
+    "country": "Chile",
+    "state_province": "Colchagua",
+    "city": "San Fernando",
+    "latitude": "-34.67172332037338",
+    "longitude": "-70.93170404434206",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.078646,
+              -34.588103
+            ],
+            [
+              -71.020968,
+              -34.481762
+            ],
+            [
+              -70.856173,
+              -34.470441
+            ],
+            [
+              -70.740817,
+              -34.548524
+            ],
+            [
+              -70.64606,
+              -34.52703
+            ],
+            [
+              -70.323336,
+              -34.6028
+            ],
+            [
+              -70.225832,
+              -34.687534
+            ],
+            [
+              -70.232699,
+              -34.801506
+            ],
+            [
+              -70.354922,
+              -35.023354
+            ],
+            [
+              -70.628207,
+              -35.001984
+            ],
+            [
+              -70.847933,
+              -34.856742
+            ],
+            [
+              -70.931704,
+              -34.671723
+            ],
+            [
+              -71.078646,
+              -34.588103
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "c0ac273f-881e-4ea8-ae7a-2f4809e39593",
+    "country": "Peru",
+    "state_province": "Lima",
+    "city": "Chancay",
+    "latitude": "-11.615278258654929",
+    "longitude": "-77.29049742221834",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.295991,
+              -11.537248
+            ],
+            [
+              -77.272301,
+              -11.523455
+            ],
+            [
+              -77.231789,
+              -11.599808
+            ],
+            [
+              -77.290497,
+              -11.615278
+            ],
+            [
+              -77.295991,
+              -11.537248
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "3f70d1aa-999f-423d-ae31-70bd5e63798d",
+    "country": "Palestine",
+    "state_province": "Nablus",
+    "city": "Nablus",
+    "latitude": "32.2316528528494",
+    "longitude": "35.1995462179184",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.213966,
+              32.264754
+            ],
+            [
+              35.314903,
+              32.233395
+            ],
+            [
+              35.30117,
+              32.182269
+            ],
+            [
+              35.270957,
+              32.181106
+            ],
+            [
+              35.199546,
+              32.231653
+            ],
+            [
+              35.213966,
+              32.264754
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "616ea825-f196-4610-b198-653eefefce91",
+    "country": "Japan",
+    "state_province": "Chugoku",
+    "city": "Higashi Hiroshima",
+    "latitude": "34.4015010463144",
+    "longitude": "132.64415681362155",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              132.712478,
+              34.476818
+            ],
+            [
+              132.774963,
+              34.446247
+            ],
+            [
+              132.814445,
+              34.394419
+            ],
+            [
+              132.74166,
+              34.358432
+            ],
+            [
+              132.65068,
+              34.382519
+            ],
+            [
+              132.644157,
+              34.401501
+            ],
+            [
+              132.712478,
+              34.476818
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "340d3091-dd51-427f-9499-699c6acecb03",
+    "country": "Japan",
+    "state_province": "Kanto",
+    "city": "Shibuya Tokyo",
+    "latitude": "35.68655511307397",
+    "longitude": "139.74029481410983",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              139.690513,
+              35.687671
+            ],
+            [
+              139.645194,
+              35.668706
+            ],
+            [
+              139.740981,
+              35.627695
+            ],
+            [
+              139.757461,
+              35.648064
+            ],
+            [
+              139.740295,
+              35.686555
+            ],
+            [
+              139.690513,
+              35.687671
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "4fbb8ef8-ca44-4b5b-b47e-f85769401f36",
+    "country": "Japan",
+    "state_province": "Kanto",
+    "city": "Yokohama",
+    "latitude": "35.41728766415625",
+    "longitude": "139.6060556173325",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              139.604339,
+              35.472108
+            ],
+            [
+              139.649658,
+              35.467075
+            ],
+            [
+              139.692573,
+              35.439388
+            ],
+            [
+              139.698753,
+              35.391543
+            ],
+            [
+              139.665107,
+              35.389584
+            ],
+            [
+              139.606056,
+              35.417288
+            ],
+            [
+              139.604339,
+              35.472108
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "027d7beb-f8f7-4298-8c94-91f65ee3db97",
+    "country": "Portugal",
+    "state_province": "Braga",
+    "city": "Braga",
+    "latitude": "41.61226589760172",
+    "longitude": "-8.446962833404543",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -8.353579,
+              41.627665
+            ],
+            [
+              -8.282168,
+              41.547548
+            ],
+            [
+              -8.440096,
+              41.454982
+            ],
+            [
+              -8.536227,
+              41.489967
+            ],
+            [
+              -8.517001,
+              41.571183
+            ],
+            [
+              -8.446963,
+              41.612266
+            ],
+            [
+              -8.353579,
+              41.627665
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "053ce30e-6da8-4633-b151-f20c44961d8e",
+    "country": "Turkey",
+    "state_province": "İstanbul",
+    "city": "Istanbul",
+    "latitude": "41.19095937295422",
+    "longitude": "29.241635799407963",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.825378,
+              41.377839
+            ],
+            [
+              28.842008,
+              40.950765
+            ],
+            [
+              29.266355,
+              40.863582
+            ],
+            [
+              29.380338,
+              40.943505
+            ],
+            [
+              29.319763,
+              41.308761
+            ],
+            [
+              28.825378,
+              41.377839
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "d22275fc-42cd-47e2-9d47-475293ba9735",
+    "country": "Indonesia",
+    "state_province": "Central Java",
+    "city": "Semarang",
+    "latitude": "-7.03380390505048",
+    "longitude": "110.36559998989107",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              110.345344,
+              -6.940432
+            ],
+            [
+              110.46379,
+              -6.928845
+            ],
+            [
+              110.491599,
+              -7.006544
+            ],
+            [
+              110.3656,
+              -7.033804
+            ],
+            [
+              110.345344,
+              -6.940432
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "34d10165-5d32-45c3-b0f5-920f283b25eb",
+    "country": "Serbia",
+    "state_province": "Zaječar",
+    "city": "Sokobanja",
+    "latitude": "43.64623849954483",
+    "longitude": "21.89956605434418",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              21.86386,
+              43.662136
+            ],
+            [
+              21.840515,
+              43.644996
+            ],
+            [
+              21.869354,
+              43.600261
+            ],
+            [
+              21.904373,
+              43.603741
+            ],
+            [
+              21.899566,
+              43.646238
+            ],
+            [
+              21.86386,
+              43.662136
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "866d9833-829e-4add-992b-21d208ad9a14",
+    "country": "Turkey",
+    "state_province": "İstanbul",
+    "city": "Sultanbeyli",
+    "latitude": "40.99801444060771",
+    "longitude": "29.289245009422306",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.24839,
+              41.003974
+            ],
+            [
+              29.24221,
+              40.966395
+            ],
+            [
+              29.254226,
+              40.930869
+            ],
+            [
+              29.316368,
+              40.942799
+            ],
+            [
+              29.324607,
+              40.966135
+            ],
+            [
+              29.295081,
+              40.960432
+            ],
+            [
+              29.289245,
+              40.998014
+            ],
+            [
+              29.24839,
+              41.003974
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "8b78afd0-cd94-48b4-9528-bb4ebe5d63b9",
+    "country": "Italy",
+    "state_province": "Bologna",
+    "city": "Bologna",
+    "latitude": "44.495992590851166",
+    "longitude": "11.271666884422304",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.259651,
+              44.551312
+            ],
+            [
+              11.361617,
+              44.555471
+            ],
+            [
+              11.442985,
+              44.504563
+            ],
+            [
+              11.408653,
+              44.449935
+            ],
+            [
+              11.348915,
+              44.455571
+            ],
+            [
+              11.271667,
+              44.495993
+            ],
+            [
+              11.259651,
+              44.551312
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "bec95706-ec4b-4a23-9e33-2809c26e540a",
+    "country": "Bangladesh",
+    "state_province": "Dhaka",
+    "city": "Dhaka",
+    "latitude": "23.824579665716247",
+    "longitude": "90.41030824184419",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.342636,
+              23.828692
+            ],
+            [
+              90.327911,
+              23.750753
+            ],
+            [
+              90.388679,
+              23.71461
+            ],
+            [
+              90.436057,
+              23.725611
+            ],
+            [
+              90.443954,
+              23.787829
+            ],
+            [
+              90.397911,
+              23.848476
+            ],
+            [
+              90.342636,
+              23.828692
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "febb700b-e181-46b8-8665-bad46ae3d981",
+    "country": "Kenya",
+    "state_province": "Nyanza",
+    "city": "Homa Bay",
+    "latitude": "-0.4803350926486135",
+    "longitude": "34.490584731102",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              34.434929,
+              -0.512917
+            ],
+            [
+              34.420204,
+              -0.530802
+            ],
+            [
+              34.461746,
+              -0.569595
+            ],
+            [
+              34.508094,
+              -0.496127
+            ],
+            [
+              34.490585,
+              -0.480335
+            ],
+            [
+              34.434929,
+              -0.512917
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "56705b37-c76a-4d89-b4cd-26f17031178f",
+    "country": "Kenya",
+    "state_province": "Coast",
+    "city": "Mombasa",
+    "latitude": "-3.9211789306893303",
+    "longitude": "39.64080691337586",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              39.698448,
+              -3.917037
+            ],
+            [
+              39.769515,
+              -3.955398
+            ],
+            [
+              39.646987,
+              -4.162962
+            ],
+            [
+              39.568709,
+              -4.12461
+            ],
+            [
+              39.557036,
+              -3.968445
+            ],
+            [
+              39.640807,
+              -3.921179
+            ],
+            [
+              39.698448,
+              -3.917037
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "3c47b349-b97b-4d18-86b4-1417b6ad3ed2",
+    "country": "Mozambique",
+    "state_province": "Zambezia",
+    "city": "Quelimane",
+    "latitude": "-17.859233506632734",
+    "longitude": "36.82762026786805",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.84822,
+              -17.82263
+            ],
+            [
+              36.967009,
+              -17.771635
+            ],
+            [
+              36.962889,
+              -17.912817
+            ],
+            [
+              36.913451,
+              -17.968344
+            ],
+            [
+              36.892852,
+              -17.893869
+            ],
+            [
+              36.837233,
+              -17.895829
+            ],
+            [
+              36.82762,
+              -17.859234
+            ],
+            [
+              36.84822,
+              -17.82263
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "c3995c3f-3e0b-4400-aa87-854907d6b52e",
+    "country": "Serbia",
+    "state_province": "Pčinja",
+    "city": "Surdulica",
+    "latitude": "42.69201343158884",
+    "longitude": "22.21609085798264",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              22.150001,
+              42.715477
+            ],
+            [
+              22.124424,
+              42.703368
+            ],
+            [
+              22.163219,
+              42.678259
+            ],
+            [
+              22.216091,
+              42.692013
+            ],
+            [
+              22.150001,
+              42.715477
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "42b2255a-de4b-4ee5-a914-3427a531d4e3",
+    "country": "Serbia",
+    "state_province": "Pčinja",
+    "city": "Vranje",
+    "latitude": "42.55609141524741",
+    "longitude": "21.93973481655121",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              21.87313,
+              42.58997
+            ],
+            [
+              21.852874,
+              42.579101
+            ],
+            [
+              21.893043,
+              42.522447
+            ],
+            [
+              21.932182,
+              42.525483
+            ],
+            [
+              21.939735,
+              42.556091
+            ],
+            [
+              21.87313,
+              42.58997
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "9cd0eb90-71f4-4b6e-b01b-86d7f5c5b8a1",
+    "country": "Serbia",
+    "state_province": "Raška",
+    "city": "Vrnjačka Banja",
+    "latitude": "43.6238753209737",
+    "longitude": "20.923499464988712",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.89363,
+              43.639033
+            ],
+            [
+              20.863075,
+              43.623875
+            ],
+            [
+              20.898437,
+              43.556487
+            ],
+            [
+              20.923499,
+              43.623875
+            ],
+            [
+              20.89363,
+              43.639033
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "5d14363d-cdf0-4b17-bac6-ac5322b32272",
+    "country": "Saudi Arabia",
+    "state_province": "Al Bahah",
+    "city": "Al baha",
+    "latitude": "20.388158557989094",
+    "longitude": "41.295161247253425",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              41.405025,
+              20.843171
+            ],
+            [
+              42.138362,
+              20.604266
+            ],
+            [
+              41.764827,
+              19.761292
+            ],
+            [
+              41.454463,
+              19.993756
+            ],
+            [
+              41.295161,
+              20.388159
+            ],
+            [
+              41.405025,
+              20.843171
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "314bddf8-5de3-4f85-ade1-112a7960b1c6",
+    "country": "Saudi Arabia",
+    "state_province": "Makkah",
+    "city": "Jeddah",
+    "latitude": "22.04443596584004",
+    "longitude": "38.84276390075684",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              39.059443,
+              22.293941
+            ],
+            [
+              39.226985,
+              22.278692
+            ],
+            [
+              39.490957,
+              20.729947
+            ],
+            [
+              39.007559,
+              21.309366
+            ],
+            [
+              38.842764,
+              22.044436
+            ],
+            [
+              39.059443,
+              22.293941
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "85defe75-daf5-4b82-8ea3-0c9291277fd7",
+    "country": "Saudi Arabia",
+    "state_province": "'Asir",
+    "city": "Abha",
+    "latitude": "18.78054159580923",
+    "longitude": "42.92478561401368",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              42.95105,
+              19.523553
+            ],
+            [
+              42.780762,
+              20.159098
+            ],
+            [
+              42.143555,
+              20.055931
+            ],
+            [
+              41.77002,
+              19.642588
+            ],
+            [
+              42.386456,
+              18.259675
+            ],
+            [
+              42.231445,
+              17.623082
+            ],
+            [
+              43.298321,
+              17.45449
+            ],
+            [
+              43.704815,
+              17.789555
+            ],
+            [
+              42.814922,
+              18.290972
+            ],
+            [
+              43.452129,
+              18.676496
+            ],
+            [
+              43.121338,
+              18.885498
+            ],
+            [
+              42.95105,
+              19.523553
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "5a63e538-debf-4cb2-be3a-b629bcbff322",
+    "country": "Saudi Arabia",
+    "state_province": "Al Madinah",
+    "city": "Al Ula",
+    "latitude": "27.507814650758334",
+    "longitude": "37.91991233825684",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.683706,
+              27.488324
+            ],
+            [
+              37.051992,
+              26.764771
+            ],
+            [
+              37.002554,
+              26.538934
+            ],
+            [
+              37.469473,
+              25.942764
+            ],
+            [
+              38.249502,
+              26.031643
+            ],
+            [
+              38.716421,
+              26.838317
+            ],
+            [
+              37.919912,
+              27.507815
+            ],
+            [
+              37.683706,
+              27.488324
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "7c0bbc97-4e9f-424d-aa53-7648665b26f6",
+    "country": "Chile",
+    "state_province": "Iquique",
+    "city": "Iquique",
+    "latitude": "-20.06649288553961",
+    "longitude": "-70.08697986602785",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.155644,
+              -20.030371
+            ],
+            [
+              -70.246282,
+              -20.221207
+            ],
+            [
+              -70.276494,
+              -20.805145
+            ],
+            [
+              -70.07874,
+              -21.455865
+            ],
+            [
+              -69.891973,
+              -21.435413
+            ],
+            [
+              -69.782109,
+              -21.097553
+            ],
+            [
+              -70.08698,
+              -20.066493
+            ],
+            [
+              -70.155644,
+              -20.030371
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "00aa283d-080f-4336-a17d-77bee192e71a",
+    "country": "Malaysia",
+    "state_province": "Penang",
+    "city": "Seberang Perai",
+    "latitude": "5.399879631760255",
+    "longitude": "100.34515142440797",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.369871,
+              5.501044
+            ],
+            [
+              100.520933,
+              5.502411
+            ],
+            [
+              100.533292,
+              5.226221
+            ],
+            [
+              100.415189,
+              5.207075
+            ],
+            [
+              100.345151,
+              5.39988
+            ],
+            [
+              100.369871,
+              5.501044
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "720367e7-a28e-464d-bd0c-570b66840fcf",
+    "country": "Australia",
+    "state_province": "South Australia",
+    "city": "Kimba",
+    "latitude": "-33.1241956017879",
+    "longitude": "136.44695252180102",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              136.405058,
+              -33.111393
+            ],
+            [
+              136.380596,
+              -33.128574
+            ],
+            [
+              136.376219,
+              -33.142948
+            ],
+            [
+              136.389446,
+              -33.153662
+            ],
+            [
+              136.448841,
+              -33.152513
+            ],
+            [
+              136.446953,
+              -33.124196
+            ],
+            [
+              136.405058,
+              -33.111393
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "cf5becb8-0ae6-4486-9c23-5249673fe815",
+    "country": "Canada",
+    "state_province": "Alberta",
+    "city": "Calgary",
+    "latitude": "51.09582664018552",
+    "longitude": "-114.14070042315872",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -114.316482,
+              51.142376
+            ],
+            [
+              -114.262923,
+              51.137206
+            ],
+            [
+              -114.23996,
+              51.198279
+            ],
+            [
+              -113.981399,
+              51.225014
+            ],
+            [
+              -113.915481,
+              51.184574
+            ],
+            [
+              -113.911361,
+              51.067357
+            ],
+            [
+              -113.857802,
+              51.063905
+            ],
+            [
+              -113.857802,
+              51.011229
+            ],
+            [
+              -113.897628,
+              50.997402
+            ],
+            [
+              -113.833083,
+              50.962818
+            ],
+            [
+              -113.848189,
+              50.842437
+            ],
+            [
+              -114.098128,
+              50.836366
+            ],
+            [
+              -114.231338,
+              50.884909
+            ],
+            [
+              -114.232711,
+              50.94119
+            ],
+            [
+              -114.154433,
+              50.939459
+            ],
+            [
+              -114.183272,
+              50.993945
+            ],
+            [
+              -114.24919,
+              50.999995
+            ],
+            [
+              -114.251937,
+              51.072535
+            ],
+            [
+              -114.304122,
+              51.0803
+            ],
+            [
+              -114.316482,
+              51.142376
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "8792a0b6-f80b-4989-91c0-15f0ec6cb56a",
+    "country": "France",
+    "state_province": "French Polynesia",
+    "city": "Punaauia",
+    "latitude": "-17.63900005250331",
+    "longitude": "-149.61721398518424",
+    "notification_email": "",
+    "polygon_geojson": {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -149.619961,
+              -17.576498
+            ],
+            [
+              -149.589748,
+              -17.576825
+            ],
+            [
+              -149.575329,
+              -17.594171
+            ],
+            [
+              -149.600391,
+              -17.609879
+            ],
+            [
+              -149.602794,
+              -17.640309
+            ],
+            [
+              -149.617214,
+              -17.639
+            ],
+            [
+              -149.619961,
+              -17.576498
+            ]
+          ]
+        ]
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  },
+  {
+    "city_id": "8d653064-150d-461e-9063-ab1fda70ab64",
+    "country": "India",
+    "state_province": "Odisha",
+    "city": "Bhubaneswar",
+    "latitude": "20.365106838814054",
+    "longitude": "85.89538335800171",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.810089,
+              20.41543
+            ],
+            [
+              85.650938,
+              20.206669
+            ],
+            [
+              85.883024,
+              20.075159
+            ],
+            [
+              85.99838,
+              20.4359
+            ],
+            [
+              85.895383,
+              20.365107
+            ],
+            [
+              85.810089,
+              20.41543
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "city_id": "b0862336-9afe-4b79-8fb4-021862da3705",
+    "country": "Uganda",
+    "state_province": "Central",
+    "city": "Kampala",
+    "latitude": "0.37830673951352534",
+    "longitude": "32.544288039207466",
+    "notification_email": "",
+    "polygon_geojson": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              32.560768,
+              0.408175
+            ],
+            [
+              32.613296,
+              0.408862
+            ],
+            [
+              32.640762,
+              0.37865
+            ],
+            [
+              32.671317,
+              0.32063
+            ],
+            [
+              32.672004,
+              0.274968
+            ],
+            [
+              32.632522,
+              0.208708
+            ],
+            [
+              32.608489,
+              0.225187
+            ],
+            [
+              32.572097,
+              0.273252
+            ],
+            [
+              32.537422,
+              0.268789
+            ],
+            [
+              32.503776,
+              0.308957
+            ],
+            [
+              32.529525,
+              0.349812
+            ],
+            [
+              32.551498,
+              0.354275
+            ],
+            [
+              32.544288,
+              0.378307
+            ],
+            [
+              32.560768,
+              0.408175
+            ]
+          ]
+        ]
+      }
+    }
+  }
+]

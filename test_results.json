@@ -1,0 +1,105 @@
+{
+  "timestamp": "2025-07-25T18:54:12.749Z",
+  "city": "Punaauia",
+  "tests": [
+    {
+      "timestamp": "2025-07-25T18:54:12.750Z",
+      "type": "info",
+      "message": "🧪 Starting comprehensive Punaauia test..."
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.752Z",
+      "type": "info",
+      "message": "🔍 Checking server health..."
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.768Z",
+      "type": "success",
+      "message": "Server is responsive on port 3000"
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.768Z",
+      "type": "info",
+      "message": "🐍 Checking Python environment..."
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.768Z",
+      "type": "success",
+      "message": "Python environment files exist"
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.768Z",
+      "type": "info",
+      "message": "🌍 Loading cities data..."
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.769Z",
+      "type": "success",
+      "message": "Found Punaauia: Punaauia, France"
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.769Z",
+      "type": "info",
+      "message": "Coordinates: -17.63900005250331, -149.61721398518424"
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.769Z",
+      "type": "info",
+      "message": "Has polygon: true"
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.769Z",
+      "type": "info",
+      "message": "🚀 Starting processing test..."
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.769Z",
+      "type": "info",
+      "message": "Sending config: {\n  \"startMonth\": \"07\",\n  \"startYear\": 2020,\n  \"endMonth\": \"07\",\n  \"endYear\": 2020,\n  \"ndviThreshold\": 0.3,\n  \"cloudCoverageThreshold\": 20,\n  \"enableVegetationIndices\": false,\n  \"enableAdvancedCloudDetection\": false,\n  \"city\": {\n    \"city_id\": \"8792a0b6-f80b-4989-91c0-15f0ec6cb56a\",\n    \"country\": \"France\",\n    \"state_province\": \"French Polynesia\",\n    \"city\": \"Punaauia\",\n    \"latitude\": \"-17.63900005250331\",\n    \"longitude\": \"-149.61721398518424\",\n    \"notification_email\": \"\",\n    \"polygon_geojson\": {\n      \"geometry\": {\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -149.619961,\n              -17.576498\n            ],\n            [\n              -149.589748,\n              -17.576825\n            ],\n            [\n              -149.575329,\n              -17.594171\n            ],\n            [\n              -149.600391,\n              -17.609879\n            ],\n            [\n              -149.602794,\n              -17.640309\n            ],\n            [\n              -149.617214,\n              -17.639\n            ],\n            [\n              -149.619961,\n              -17.576498\n            ]\n          ]\n        ]\n      },\n      \"properties\": {},\n      \"type\": \"Feature\"\n    }\n  }\n}"
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.775Z",
+      "type": "success",
+      "message": "Processing started with ID: fb72dc0c-59fc-451e-9253-21215ab43f73"
+    },
+    {
+      "timestamp": "2025-07-25T18:54:12.781Z",
+      "type": "info",
+      "message": "Progress: 5% - Initializing satellite processing..."
+    },
+    {
+      "timestamp": "2025-07-25T18:54:14.791Z",
+      "type": "info",
+      "message": "Progress: 2% - Initializing satellite processing..."
+    },
+    {
+      "timestamp": "2025-07-25T18:56:15.354Z",
+      "type": "info",
+      "message": "Progress: 3% - Initializing satellite processing..."
+    },
+    {
+      "timestamp": "2025-07-25T18:59:42.357Z",
+      "type": "info",
+      "message": "Progress: 4% - Initializing satellite processing..."
+    },
+    {
+      "timestamp": "2025-07-25T19:00:50.746Z",
+      "type": "info",
+      "message": "Progress: 5% - Initializing satellite processing..."
+    },
+    {
+      "timestamp": "2025-07-25T19:02:49.416Z",
+      "type": "info",
+      "message": "Progress: 6% - Initializing satellite processing..."
+    },
+    {
+      "timestamp": "2025-07-25T19:04:13.885Z",
+      "type": "error",
+      "message": "Test failed: Processing timed out"
+    }
+  ],
+  "errors": [
+    "Test failed: Processing timed out"
+  ],
+  "success": false
+}
