@@ -56,9 +56,9 @@ __pycache__/
 /python_scripts/dist/
 /python_scripts/*.spec
 
-# Web installer artifacts
+# Web installer artifacts (but keep the final distribution)
 /web-installer/
-/dist-web/
+# Note: dist-web/ contains the 21MB installer for distribution - keep it!
 
 # Temporary build files
 package-*.json
