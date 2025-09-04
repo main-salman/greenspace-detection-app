@@ -12,6 +12,47 @@ A Next.js web application for analyzing satellite imagery to detect and visualiz
 - **📊 Real-time Progress**: Live updates during processing with detailed status tracking
 - **📈 Analytics**: Comprehensive vegetation coverage statistics and insights
 
+## 🚀 Quick Start
+
+### Prerequisites
+- **Node.js 18+** - [Download](https://nodejs.org/)
+- **Python 3.8+** - [Download](https://python.org/)
+- **GDAL** - Required for satellite image processing
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repo-url>
+   cd greenspace-detection-app
+   ```
+
+2. **Run the setup script:**
+   ```bash
+   ./setup.sh
+   ```
+   
+   Or manually:
+   ```bash
+   # Install Node.js dependencies
+   npm install
+   
+   # Create Python virtual environment
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+   # Install Python dependencies
+   pip install -r python_scripts/requirements.txt
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
 ## Technology Stack
 
 ### Frontend

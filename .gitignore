@@ -43,5 +43,6 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Processing outputs
-/public/outputs/
+# Processing outputs (but keep the directory structure)
+/public/outputs/*
+!/public/outputs/.gitkeep
