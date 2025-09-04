@@ -7,6 +7,9 @@ const nextConfig = {
   // Only enable static export when explicitly requested
   ...(shouldExport ? { output: 'export' } : {}),
   
+  // Enable standalone mode for smaller builds
+  output: process.env.NODE_ENV === 'production' ? 'standalone' : undefined,
+  
   // Electron-specific configuration
   ...(isElectron ? {
     assetPrefix: './',
@@ -26,6 +29,13 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   
+  // Optimize for smaller bundle size
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn']
+    } : false,
+  },
+  
   // Configure for Electron packaging
   webpack: (config, { isServer }) => {
     if (isElectron && !isServer) {
@@ -36,6 +46,15 @@ const nextConfig = {
     if (isElectron) {
       config.externals = config.externals || {};
       config.externals['electron'] = 'commonjs electron';
+    }
+    
+    // Optimize bundle size
+    if (config.mode === 'production') {
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,
+        sideEffects: false,
+      };
     }
     
     return config;

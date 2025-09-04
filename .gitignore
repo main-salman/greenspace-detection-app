@@ -46,3 +46,12 @@ __pycache__/
 # Processing outputs (but keep the directory structure)
 /public/outputs/*
 !/public/outputs/.gitkeep
+
+# Electron build artifacts
+/dist/
+/python_runtime/
+
+# Python build artifacts
+/python_scripts/build/
+/python_scripts/dist/
+/python_scripts/*.spec

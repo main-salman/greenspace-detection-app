@@ -3,6 +3,7 @@ const { spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const http = require('http');
+const { ensurePythonEnvironment } = require('./python-installer');
 
 // Keep a global reference of the window object
 let mainWindow;
@@ -110,7 +111,7 @@ async function startNextServer() {
   });
 }
 
-// Get Python executable path (now using standalone executables)
+// Get Python executable path (using bundled Python environment)
 function getPythonExecutablePath(scriptName) {
   const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
   
@@ -129,19 +130,18 @@ function getPythonExecutablePath(scriptName) {
       };
     }
   } else {
-    // Production mode - use bundled standalone executables
+    // Production mode - use bundled Python environment
     const platform = process.platform;
-    const baseName = scriptName.replace('.py', '');
     
     if (platform === 'win32') {
       return {
-        executable: path.join(process.resourcesPath, 'python_runtime', 'bin', `${baseName}.exe`),
-        isStandalone: true
+        executable: path.join(process.resourcesPath, 'python_env', 'Scripts', 'python.exe'),
+        isStandalone: false
       };
     } else {
       return {
-        executable: path.join(process.resourcesPath, 'python_runtime', 'bin', baseName),
-        isStandalone: true
+        executable: path.join(process.resourcesPath, 'python_env', 'bin', 'python'),
+        isStandalone: false
       };
     }
   }
@@ -154,7 +154,7 @@ function getPythonScriptsPath() {
   if (isDev) {
     return path.join(process.cwd(), 'python_scripts');
   } else {
-    return path.join(process.resourcesPath, 'app', 'python_scripts');
+    return path.join(process.resourcesPath, 'python_scripts');
   }
 }
 
@@ -204,6 +204,14 @@ function createWindow() {
 app.whenReady().then(async () => {
   try {
     console.log('Starting Greenspace Detection App...');
+    
+    // Check Python environment on first run
+    const pythonCheck = await ensurePythonEnvironment();
+    if (!pythonCheck.success) {
+      console.error('Python environment setup failed:', pythonCheck.error);
+      app.quit();
+      return;
+    }
     
     // Start Next.js server first
     await startNextServer();
