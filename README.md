@@ -1,6 +1,6 @@
-# 🌱 Greenspace Detection Web App
+# 🌱 Greenspace Detection App
 
-A Next.js web application for analyzing satellite imagery to detect and visualize vegetation in cities worldwide using NDVI (Normalized Difference Vegetation Index) analysis.
+A professional desktop application for analyzing satellite imagery to detect and visualize vegetation in cities worldwide using NDVI (Normalized Difference Vegetation Index) analysis.
 
 ## Features
 
@@ -11,38 +11,93 @@ A Next.js web application for analyzing satellite imagery to detect and visualiz
 - **🎨 Visualization**: False color infrared images with vegetation highlighting
 - **📊 Real-time Progress**: Live updates during processing with detailed status tracking
 - **📈 Analytics**: Comprehensive vegetation coverage statistics and insights
+- **🖥️ Desktop Application**: Native desktop app for Mac and Windows (no browser required)
 
-## 🚀 Quick Start
+## 📦 Installation Options
 
-### Prerequisites
+### Option 1: Desktop Application (Recommended for End Users)
+
+#### **For Mac Users** 🍎
+
+1. **Download the installer:**
+   - Download `greenspace-detection-web-installer.zip` (39MB) from [GitHub Releases](../../releases)
+
+2. **Install:**
+   ```bash
+   # Extract the installer
+   unzip greenspace-detection-web-installer.zip
+   cd greenspace-detection-web-installer
+   
+   # Run the installation script
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+3. **Launch:**
+   - Click the "Greenspace Detection" icon on your desktop, or
+   - Run from Applications folder
+
+#### **For Windows Users** 🪟
+
+1. **Download the installer:**
+   - Download `greenspace-detection-web-installer.zip` (39MB) from [GitHub Releases](../../releases)
+
+2. **Install:**
+   ```cmd
+   # Extract the installer to a folder
+   # Right-click → Extract All → Choose destination
+   
+   # Open Command Prompt in the extracted folder
+   # Run the installation script
+   install.bat
+   ```
+
+3. **Launch:**
+   - Click the "Greenspace Detection" desktop shortcut, or
+   - Run from Start Menu
+
+#### **What the Desktop Installer Does:**
+- ✅ **Checks system requirements** (Node.js, Python)
+- ✅ **Installs missing dependencies** automatically
+- ✅ **Sets up Python environment** with required packages
+- ✅ **Creates desktop shortcuts** for easy access
+- ✅ **Configures the application** for optimal performance
+- ✅ **Launches native desktop window** (no browser needed)
+
+### Option 2: Development Setup (For Developers)
+
+#### **Prerequisites**
 - **Node.js 18+** - [Download](https://nodejs.org/)
 - **Python 3.8+** - [Download](https://python.org/)
 - **GDAL** - Required for satellite image processing
 
-### Installation
+#### **Development Installation**
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/main-salman/greenspace-detection-app.git
    cd greenspace-detection-app
    ```
 
 2. **Run the setup script:**
+   
+   **Mac/Linux:**
    ```bash
+   chmod +x setup.sh
    ./setup.sh
    ```
    
-   Or manually:
-   ```bash
+   **Windows:**
+   ```cmd
    # Install Node.js dependencies
    npm install
    
    # Create Python virtual environment
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python -m venv venv
+   venv\Scripts\activate
    
    # Install Python dependencies
-   pip install -r python_scripts/requirements.txt
+   pip install -r python_scripts\requirements.txt
    ```
 
 3. **Start the development server:**
@@ -52,6 +107,59 @@ A Next.js web application for analyzing satellite imagery to detect and visualiz
 
 4. **Open your browser:**
    Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 💻 System Requirements
+
+### **Minimum Requirements:**
+- **Operating System**: macOS 10.15+, Windows 10+, or Linux
+- **Memory (RAM)**: 8GB minimum, 16GB recommended
+- **Storage**: 2GB free space (for application and temporary processing files)
+- **Internet**: Broadband connection (for satellite data downloads)
+- **Node.js**: Version 18.0 or higher
+- **Python**: Version 3.8 or higher
+
+### **Recommended for Optimal Performance:**
+- **Memory (RAM)**: 32GB for processing large cities
+- **Storage**: 10GB+ free space for multiple processing sessions
+- **CPU**: Multi-core processor (8+ cores recommended)
+- **Internet**: High-speed connection for faster satellite data downloads
+
+## 🛠️ Troubleshooting
+
+### **Common Issues:**
+
+#### **"Python environment not ready"** 
+- **Solution**: Run the installer script again: `./install.sh` (Mac) or `install.bat` (Windows)
+- **Alternative**: Manually install Python dependencies:
+  ```bash
+  pip install -r python_scripts/requirements.txt
+  ```
+
+#### **"Could not find a production build"**
+- **Solution**: The app is trying to run in production mode without a build
+- **Fix**: Use development mode or build first:
+  ```bash
+  npm run dev  # Development mode
+  # OR
+  npm run build && npm start  # Production mode
+  ```
+
+#### **"Module not found" errors**
+- **Solution**: Reinstall dependencies:
+  ```bash
+  rm -rf node_modules package-lock.json
+  npm install
+  ```
+
+#### **Satellite data download fails**
+- **Check**: Internet connection and firewall settings
+- **Try**: Different time periods or smaller geographic areas
+- **Note**: Some regions may have limited satellite coverage
+
+### **Getting Help:**
+- **Issues**: Report bugs on [GitHub Issues](../../issues)
+- **Documentation**: Check the [DISTRIBUTION.md](DISTRIBUTION.md) guide
+- **Logs**: Check console output for detailed error messages
 
 ## 🖥️ Desktop Application
 
@@ -65,14 +173,23 @@ The application can be packaged as standalone desktop applications for macOS and
 
 #### Build Desktop Applications
 
-1. **Quick Build (Current Platform):**
+1. **Optimized Desktop Build:**
    ```bash
-   ./build.sh
+   ./build-optimized.sh
    ```
+   - Creates 146-160MB DMG installers
+   - Professional native desktop applications
 
-2. **Test Desktop App (Development):**
+2. **Web-Based Installer (GitHub Distribution):**
    ```bash
-   ./test-electron.sh
+   ./create-web-installer.sh
+   ```
+   - Creates 39MB web installer (GitHub-compatible)
+   - Downloads dependencies on first run
+
+3. **Test Desktop App (Development):**
+   ```bash
+   npm run electron
    ```
 
 #### What the Build Process Does
@@ -84,10 +201,13 @@ The application can be packaged as standalone desktop applications for macOS and
 
 #### Generated Files
 
-After running `./build.sh`, you'll find:
-- **macOS**: `dist/Greenspace Detection-*.dmg` 
-- **Windows**: `dist/Greenspace Detection Setup *.exe`
-- **Linux**: `dist/Greenspace Detection-*.AppImage`
+**Optimized Build** (`./build-optimized.sh`):
+- **macOS Intel**: `dist/Greenspace Detection-0.1.0.dmg` (160MB)
+- **macOS Apple Silicon**: `dist/Greenspace Detection-0.1.0-arm64.dmg` (146MB)
+- **Windows**: `dist/Greenspace Detection Setup 0.1.0.exe` (planned)
+
+**Web Installer** (`./create-web-installer.sh`):
+- **All Platforms**: `dist-web/greenspace-detection-web-installer.zip` (39MB)
 
 #### Desktop App Features
 
