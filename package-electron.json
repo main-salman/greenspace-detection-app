@@ -1,0 +1,38 @@
+{
+  "name": "greenspace-app",
+  "version": "0.1.0",
+  "main": "electron/main.js",
+  "build": {
+    "appId": "com.greenspace.detection",
+    "productName": "Greenspace Detection",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      ".next/standalone/**/*",
+      ".next/static/**/*", 
+      "electron/main.js",
+      "electron/preload.js",
+      "python_scripts/*.py",
+      "python_scripts/requirements.txt",
+      "cities.json",
+      "public/cities.json",
+      "public/*.svg",
+      "public/*.ico",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [{"target": "dir", "arch": ["arm64"]}]
+    },
+    "win": {
+      "target": [{"target": "dir", "arch": ["x64"]}]
+    },
+    "compression": "maximum",
+    "nsis": {
+      "oneClick": true,
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": true
+    }
+  }
+}

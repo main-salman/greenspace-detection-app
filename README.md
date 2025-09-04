@@ -53,6 +53,70 @@ A Next.js web application for analyzing satellite imagery to detect and visualiz
 4. **Open your browser:**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
+## 🖥️ Desktop Application
+
+### Building Standalone Desktop Apps
+
+The application can be packaged as standalone desktop applications for macOS and Windows, eliminating the need for browser access or manual server setup.
+
+#### Prerequisites for Desktop Build
+- **Node.js 18+** and **Python 3.8+** (same as web version)
+- **ImageMagick** (optional, for creating app icons): `brew install imagemagick` (macOS)
+
+#### Build Desktop Applications
+
+1. **Quick Build (Current Platform):**
+   ```bash
+   ./build.sh
+   ```
+
+2. **Test Desktop App (Development):**
+   ```bash
+   ./test-electron.sh
+   ```
+
+#### What the Build Process Does
+
+1. **Creates Python Executables**: Uses PyInstaller to create standalone Python executables
+2. **Builds Next.js App**: Optimizes the web interface for desktop packaging
+3. **Packages with Electron**: Bundles everything into native desktop applications
+4. **Generates Installers**: Creates DMG files for macOS and EXE installers for Windows
+
+#### Generated Files
+
+After running `./build.sh`, you'll find:
+- **macOS**: `dist/Greenspace Detection-*.dmg` 
+- **Windows**: `dist/Greenspace Detection Setup *.exe`
+- **Linux**: `dist/Greenspace Detection-*.AppImage`
+
+#### Desktop App Features
+
+✅ **No Browser Required**: Runs in its own native window  
+✅ **No Manual Setup**: All dependencies bundled  
+✅ **Offline Capable**: Works without internet (except for satellite data downloads)  
+✅ **Native Look**: Integrates with OS window management  
+✅ **Auto-Updates**: Can be configured for automatic updates  
+✅ **File Associations**: Can be set to open specific file types  
+
+#### Installation
+
+- **macOS**: Double-click the DMG file and drag to Applications
+- **Windows**: Run the EXE installer and follow the setup wizard
+- **Linux**: Make the AppImage executable and run it
+
+#### Development Commands
+
+```bash
+# Test Electron app in development
+npm run electron
+
+# Build for current platform only
+npm run electron:dist
+
+# Build desktop apps (all platforms)
+./build.sh
+```
+
 ## Technology Stack
 
 ### Frontend
