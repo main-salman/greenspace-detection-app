@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { City } from '@/types';
-import { safeDecimal } from '../lib/utils';
+import { safeDecimal } from '@/lib/utils';
 
 interface CitySelectorProps {
   cities: City[];

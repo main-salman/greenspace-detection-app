@@ -1,7 +1,7 @@
 'use client';
 
 import { CityAnnualSummary } from '@/types';
-import { safeToFixed, safePercentage } from '../lib/utils';
+import { safeToFixed, safePercentage } from '@/lib/utils';
 import dynamic from 'next/dynamic';
 
 // Dynamic import to prevent SSR issues with Leaflet

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, RotateCcw, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
-import { safeToFixed, safePercentage, safeDecimal } from '../lib/utils';
+import { safeToFixed, safePercentage, safeDecimal } from '@/lib/utils';
 
 interface AlignmentTestResult {
   iteration: number;

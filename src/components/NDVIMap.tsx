@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ProcessingStatus, City, ProcessingConfig } from '@/types';
-import { safeToFixed, safePercentage } from '../lib/utils';
+import { safeToFixed, safePercentage } from '@/lib/utils';
 
 interface NDVIMapProps {
   status: ProcessingStatus;

@@ -2,7 +2,7 @@
 
 import { ProcessingStatus } from '@/types';
 import { useState } from 'react';
-import { safeToFixed, safePercentage, formatTimeAgo } from '../lib/utils';
+import { safeToFixed, safePercentage, formatTimeAgo } from '@/lib/utils';
 
 interface ProcessingPanelProps {
   status: ProcessingStatus;

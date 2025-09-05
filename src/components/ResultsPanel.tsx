@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { ProcessingStatus } from '@/types';
 import { City } from '@/types';
 import SummaryPanel from './SummaryPanel';
-import { safeToFixed, safePercentage, safeDecimal } from '../lib/utils';
+import { safeToFixed, safePercentage, safeDecimal } from '@/lib/utils';
 
 // Dynamic import to prevent SSR issues with Leaflet
 const VegetationMap = dynamic(() => import('./VegetationMap'), {
