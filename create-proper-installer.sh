@@ -113,12 +113,49 @@ cat > launch.sh << 'LAUNCH_EOF'
 #!/bin/bash
 cd "$(dirname "$0")"
 echo "🚀 Starting Greenspace Detection App..."
+
+# Check if app is already running
+if lsof -i :3000 >/dev/null 2>&1; then
+    echo "✅ App is already running!"
+    echo "   Opening browser to: http://localhost:3000"
+    open http://localhost:3000 2>/dev/null || echo "   Please open http://localhost:3000 in your browser"
+    exit 0
+fi
+
+# Kill any existing instances to prevent port conflicts
+pkill -f "next dev" 2>/dev/null || true
+pkill -f "npm run dev" 2>/dev/null || true
+sleep 2
+
+# Activate virtual environment
 source venv/bin/activate
+
+# Start the Next.js development server
 npm run dev &
-sleep 5
-open "http://localhost:3000"
-echo "✅ App started! Opening in browser..."
-echo "   If browser doesn't open, visit: http://localhost:3000"
+SERVER_PID=$!
+
+# Wait for server to start and check if it's running on port 3000
+echo "⏳ Waiting for server to start..."
+for i in {1..30}; do
+    if lsof -i :3000 >/dev/null 2>&1; then
+        echo "✅ App started successfully!"
+        echo "   Opening browser to: http://localhost:3000"
+        sleep 1
+        open http://localhost:3000 2>/dev/null || echo "   Please open http://localhost:3000 in your browser"
+        break
+    fi
+    sleep 1
+done
+
+# Check if server started successfully
+if ! lsof -i :3000 >/dev/null 2>&1; then
+    echo "❌ Failed to start server on port 3000"
+    echo "   Please check if another application is using port 3000"
+    exit 1
+fi
+
+# Keep the script running
+wait $SERVER_PID
 LAUNCH_EOF
 
 chmod +x launch.sh
@@ -128,6 +165,11 @@ DESKTOP_FILE="$HOME/Desktop/Greenspace Detection.command"
 cat > "$DESKTOP_FILE" << 'DESKTOP_EOF'
 #!/bin/bash
 cd "$HOME/Applications/Greenspace Detection"
+# Kill any existing instances first to prevent port conflicts
+pkill -f "next dev" 2>/dev/null || true
+pkill -f "npm run dev" 2>/dev/null || true
+sleep 1
+# Launch the app
 ./launch.sh
 DESKTOP_EOF
 
