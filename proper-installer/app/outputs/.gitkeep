@@ -1,2 +1,0 @@
-# This file ensures the outputs directory exists when the repository is cloned
-# The directory is needed for processing results but the contents are cleaned up automatically
