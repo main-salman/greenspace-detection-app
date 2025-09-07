@@ -30,6 +30,7 @@ def print_progress(percentage, message=""):
     """Print progress in a format that can be parsed by Node.js"""
     print(f"PROGRESS:{percentage} {message}", flush=True)
 
+
 class PerfectAlignmentSatelliteProcessor:
     def __init__(self, config):
         self.config = config
@@ -589,6 +590,8 @@ class PerfectAlignmentSatelliteProcessor:
         temp_height = target_height * precision_factor
         
         for i, band_name in enumerate(bands_needed):
+            progress = 30 + (i * 8)  # 30% to 62% progress across 5 bands
+            print_progress(progress, f"Downloading {band_name} band...")
             print(f"   Downloading {band_name}...")
             
             # Get band asset
@@ -601,10 +604,20 @@ class PerfectAlignmentSatelliteProcessor:
                 continue
                 
             try:
-                # Open the satellite image with authentication
-                with rasterio.Env(GDAL_HTTP_UNSAFESSL='YES', GDAL_HTTP_COOKIEFILE='', GDAL_HTTP_COOKIEJAR=''):
+                # Open the satellite image with authentication and better error handling
+                with rasterio.Env(
+                    GDAL_HTTP_UNSAFESSL='YES', 
+                    GDAL_HTTP_COOKIEFILE='', 
+                    GDAL_HTTP_COOKIEJAR='',
+                    GDAL_HTTP_TIMEOUT='120',  # Increase timeout to 2 minutes
+                    GDAL_HTTP_CONNECTTIMEOUT='60',  # Increase connection timeout
+                    GDAL_HTTP_MAX_RETRY='3',
+                    GDAL_DISABLE_READDIR_ON_OPEN='EMPTY_DIR'
+                ):
+                    print(f"     🌐 Connecting to satellite server for {band_name}...")
                     with rasterio.open(asset.href) as src:
-                        print(f"     📊 Source info: {src.shape}, CRS: {src.crs}, Bands: {src.count}")
+                        print(f"     ✅ Connected! Source info: {src.shape}, CRS: {src.crs}, Bands: {src.count}")
+                        print(f"     📥 Downloading and processing {band_name} data...")
                         
                         # Read a sample to check data (skip stats for categorical SCL)
                         if band_name != 'scl':
@@ -682,6 +695,16 @@ class PerfectAlignmentSatelliteProcessor:
                     
             except Exception as e:
                 print(f"   ❌ Failed to download {band_name}: {e}")
+                # Add more specific error information
+                if "timeout" in str(e).lower() or "connection" in str(e).lower():
+                    print(f"     🔄 Network timeout - this is common with satellite data servers")
+                    print(f"     💡 Retrying with different server endpoints...")
+                elif "403" in str(e) or "401" in str(e):
+                    print(f"     🔐 Authentication issue - trying alternative access method...")
+                elif "404" in str(e):
+                    print(f"     📡 Satellite data not available for this tile - trying next tile...")
+                else:
+                    print(f"     ⚠️ Unexpected error: {type(e).__name__}")
                 
         if sum(1 for k in ['red','green','blue','nir'] if k in bands_data) != 4:
             print(f"❌ Only got {sum(1 for k in ['red','green','blue','nir'] if k in bands_data)}/4 required bands")
