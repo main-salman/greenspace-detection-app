@@ -540,7 +540,10 @@ async function processInBackground(processingId: string, config: ProcessingConfi
 function runPythonScript(scriptName: string, configPath: string, processingId: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const scriptPath = path.join(process.cwd(), 'python_scripts', scriptName);
-    const pythonPath = path.join(process.cwd(), 'venv', 'bin', 'python');
+    // Handle Windows vs Unix Python paths
+    const pythonPath = process.platform === 'win32'
+      ? path.join(process.cwd(), 'venv', 'Scripts', 'python.exe')
+      : path.join(process.cwd(), 'venv', 'bin', 'python');
     
     console.log(`Running Python script: ${pythonPath} ${scriptPath} ${configPath}`);
     console.log(`Script exists: ${require('fs').existsSync(scriptPath)}`);
@@ -559,11 +562,17 @@ function runPythonScript(scriptName: string, configPath: string, processingId: s
     }
     
     // Use virtual environment's Python interpreter
+    const venvBinPath = process.platform === 'win32'
+      ? path.join(process.cwd(), 'venv', 'Scripts')
+      : path.join(process.cwd(), 'venv', 'bin');
+    
     const pythonProcess = spawn(pythonPath, [scriptPath, configPath], {
       cwd: process.cwd(),
       env: {
         ...process.env,
-        PATH: `${path.join(process.cwd(), 'venv', 'bin')}:${process.env.PATH}`,
+        PATH: process.platform === 'win32'
+          ? `${venvBinPath};${process.env.PATH}`
+          : `${venvBinPath}:${process.env.PATH}`,
         PYTHONPATH: path.join(process.cwd(), 'python_scripts')
       }
     });

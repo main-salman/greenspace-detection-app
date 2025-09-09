@@ -4,11 +4,8 @@ const shouldExport = process.env.NEXT_OUTPUT === 'export' || process.env.STATIC_
 const isElectron = process.env.IS_ELECTRON === 'true';
 
 const nextConfig = {
-  // Only enable static export when explicitly requested
-  ...(shouldExport ? { output: 'export' } : {}),
-  
-  // Enable standalone mode for smaller builds
-  output: process.env.NODE_ENV === 'production' ? 'standalone' : undefined,
+  // Configure output based on environment
+  output: shouldExport ? 'export' : (process.env.NODE_ENV === 'production' ? 'standalone' : undefined),
   
   // Electron-specific configuration
   ...(isElectron ? {
