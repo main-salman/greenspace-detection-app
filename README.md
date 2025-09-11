@@ -2,6 +2,42 @@
 
 A professional desktop application for analyzing satellite imagery to detect and visualize vegetation in cities worldwide using NDVI (Normalized Difference Vegetation Index) analysis.
 
+## 🚀 Quick Start (Clone & Run)
+
+Use the one-click scripts to install everything and launch the app.
+
+### macOS
+```bash
+git clone https://github.com/main-salman/greenspace-detection-app.git
+cd greenspace-detection-app
+chmod +x ./run-app-mac.sh
+./run-app-mac.sh
+```
+This will:
+- Install Node dependencies
+- Create a Python virtual environment and install `python_scripts/requirements.txt`
+- Start the Next.js dev server and open `http://localhost:3000`
+
+### Windows
+```bat
+git clone https://github.com/main-salman/greenspace-detection-app.git
+cd greenspace-detection-app
+run-app-windows.bat
+```
+
+### Manual (if you prefer)
+```bash
+npm install
+python3 -m venv venv && source venv/bin/activate  # Windows: python -m venv venv && venv\Scripts\activate
+pip install -r python_scripts/requirements.txt
+npm run dev
+# open http://localhost:3000
+```
+
+Troubleshooting:
+- If Python packages are missing, run: `pip install -r python_scripts/requirements.txt`.
+- To stop the background server started by scripts: `kill $(cat .dev_pid) && rm -f .dev_pid` (macOS) or close the dev window / kill the PID in `.dev_pid` (Windows).
+
 ## Features
 
 - **🏙️ City Selection**: Choose from 50+ cities worldwide with predefined boundaries

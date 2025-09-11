@@ -1021,3 +1021,8 @@ How to run locally (no cloud):
     - `py -3`/`python` venv creation + pip install requirements
     - starts dev server in background and opens browser
 - Processing API updated to fall back to system Python when venv missing (see `src/app/api/process/route.ts`)
+ 
+## README Quick Start Update - 2025-09-11 ✅
+- Added concise Quick Start section at the top of `README.md`
+- Includes macOS/Windows one-click usage and manual steps
+- Added troubleshooting tips for Python deps and stopping background server
