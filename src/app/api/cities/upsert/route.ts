@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Read existing cities
-    const rootCitiesPath = path.join(process.cwd(), '..', 'cities.json');
+    const rootCitiesPath = path.join(process.cwd(), 'cities.json');
     let cities = [];
     
     try {
@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
 
     // Create backup before saving
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backupPath = path.join(process.cwd(), '..', `cities.json.${timestamp}.bak`);
+    const backupPath = path.join(process.cwd(), `cities.json.${timestamp}.bak`);
     
     try {
       const originalData = await fs.readFile(rootCitiesPath, 'utf-8');

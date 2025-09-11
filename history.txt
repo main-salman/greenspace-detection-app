@@ -966,3 +966,36 @@ How to run locally (no cloud):
   - ✅ Automatic cleanup: Previous outputs deleted on new jobs
 - **Distribution Strategy**: Upload 21MB web installer to GitHub Releases
 - **Impact**: Professional desktop distribution while maintaining GitHub compatibility
+
+## Cleanup: Removed Web-based Installer Artifacts - 2025-09-10 ✅
+
+- Removed legacy installer assets to simplify the repo and avoid confusion:
+  - Deleted `web-installer/`, `dist-web/`, and `temp-installer/`
+  - Focus remains on Electron desktop distribution in `dist/`
+  - No changes to application features
+
+## Country/State Cascading Selects on /add - 2025-09-10 ✅
+
+- Added API route `src/app/api/countries-states/route.ts` to serve `countries_states.json`
+- Updated `/add` page (`src/app/add/page.tsx`):
+  - Replaced free-text Country and State fields with cascading `<select>` elements populated from API
+  - Preserves existing OSM boundary import and polygon drawing
+  - Added Latitude/Longitude inputs and an "Autofill Lat/Lon" button
+    - Uses centroid of drawn/imported polygon if available
+    - Falls back to Nominatim geocoding for city/state/country
+- Fixed cities upsert route to read/write `cities.json` from project root for consistency
+- No changes to external behavior besides improved UX for adding cities
+
+### Map Centering on Autofill - 2025-09-11 ✅
+- `/add` page now recenters the Leaflet map to the chosen city's coordinates when "Autofill Lat/Lon" is clicked
+- Prefers polygon centroid if a boundary is drawn/imported; otherwise uses Nominatim geocode result
+- Implemented via `whenCreated` to capture map instance and `map.setView([lat, lon], 10)`
+
+## OSM Boundary Import Implemented - 2025-09-11 ✅
+- Replaced placeholder boundary API with real Nominatim integration
+- API: `src/app/api/osm/boundary/route.ts`
+  - Tries Nominatim JSON search with `polygon_geojson=1`
+  - Falls back to structured `format=geojson` search
+  - Returns `polygon_geojson` feature on success
+  - Sets `runtime = 'nodejs'`
+- UI `/add`: now receives real polygons when available; manual drawing remains as fallback
