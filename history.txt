@@ -999,3 +999,25 @@ How to run locally (no cloud):
   - Returns `polygon_geojson` feature on success
   - Sets `runtime = 'nodejs'`
 - UI `/add`: now receives real polygons when available; manual drawing remains as fallback
+
+## Repository Cleanup (Remove Electron & Installers) - 2025-09-11 ✅
+- Removed desktop/Electron distribution and all installer artifacts
+  - Deleted: `electron/`, `package-electron.json`, `package-minimal.json`, `package.json.backup`
+  - Deleted: `setup.sh`, `installer-validation-test.sh`, `test-installer-matrix.md`, `DISTRIBUTION.md`
+- Removed local build and virtualenv directories
+  - Deleted: `build/`, `venv/`
+- Kept web app essentials for Next.js runtime
+  - Preserved: `package.json`, `package-lock.json`, app source, API routes, Python scripts, `public/` (including `public/outputs/`)
+
+## One-Click Startup Scripts - 2025-09-11 ✅
+- Added cross-platform bootstrap scripts to clone-and-run quickly
+  - `run-app-mac.sh` (executable):
+    - npm ci/install
+    - python3 venv creation + `pip install -r python_scripts/requirements.txt`
+    - starts `npm run dev` in background, writes `.dev_pid`, `.dev_log`
+    - waits for server and opens `http://localhost:3000`
+  - `run-app-windows.bat`:
+    - npm ci/install
+    - `py -3`/`python` venv creation + pip install requirements
+    - starts dev server in background and opens browser
+- Processing API updated to fall back to system Python when venv missing (see `src/app/api/process/route.ts`)

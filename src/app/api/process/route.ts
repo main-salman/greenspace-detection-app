@@ -540,95 +540,89 @@ async function processInBackground(processingId: string, config: ProcessingConfi
 function runPythonScript(scriptName: string, configPath: string, processingId: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const scriptPath = path.join(process.cwd(), 'python_scripts', scriptName);
-    // Handle Windows vs Unix Python paths
-    const pythonPath = process.platform === 'win32'
+    const isWin = process.platform === 'win32';
+    const venvPython = isWin
       ? path.join(process.cwd(), 'venv', 'Scripts', 'python.exe')
       : path.join(process.cwd(), 'venv', 'bin', 'python');
-    
-    console.log(`Running Python script: ${pythonPath} ${scriptPath} ${configPath}`);
-    console.log(`Script exists: ${require('fs').existsSync(scriptPath)}`);
-    console.log(`Python exists: ${require('fs').existsSync(pythonPath)}`);
-    console.log(`Current working directory: ${process.cwd()}`);
-    
-    // Check if files exist before running
+    const candidates = isWin
+      ? [venvPython, 'py -3', 'python', 'python3']
+      : [venvPython, 'python3', 'python'];
+
+    // Ensure script exists
     if (!require('fs').existsSync(scriptPath)) {
       reject(new Error(`Python script not found: ${scriptPath}`));
       return;
     }
-    
-    if (!require('fs').existsSync(pythonPath)) {
-      reject(new Error(`Python interpreter not found: ${pythonPath}. Please ensure virtual environment is set up.`));
-      return;
-    }
-    
-    // Use virtual environment's Python interpreter
-    const venvBinPath = process.platform === 'win32'
+
+    const venvBinPath = isWin
       ? path.join(process.cwd(), 'venv', 'Scripts')
       : path.join(process.cwd(), 'venv', 'bin');
-    
-    const pythonProcess = spawn(pythonPath, [scriptPath, configPath], {
-      cwd: process.cwd(),
-      env: {
-        ...process.env,
-        PATH: process.platform === 'win32'
-          ? `${venvBinPath};${process.env.PATH}`
-          : `${venvBinPath}:${process.env.PATH}`,
-        PYTHONPATH: path.join(process.cwd(), 'python_scripts')
+
+    const tryRun = (cmd: string) => new Promise<void>((res, rej) => {
+      const useShell = cmd.includes(' '); // for 'py -3' on Windows
+      const envPatch: any = { ...process.env, PYTHONPATH: path.join(process.cwd(), 'python_scripts') };
+      if (require('fs').existsSync(venvBinPath)) {
+        envPatch.PATH = isWin ? `${venvBinPath};${process.env.PATH}` : `${venvBinPath}:${process.env.PATH}`;
       }
-    });
+      console.log(`Attempting Python: ${cmd} ${scriptPath} ${configPath}`);
 
-    let stdout = '';
-    let stderr = '';
+      const child = spawn(cmd, [scriptPath, configPath], { cwd: process.cwd(), env: envPatch, shell: useShell });
 
-    pythonProcess.stdout.on('data', async (data) => {
-      const output = data.toString();
-      stdout += output;
-      console.log(`[${scriptName}] ${output.trim()}`);
-      
-      // Parse progress updates from Python script output
-      const lines = output.split('\n');
-      for (const line of lines) {
-        if (line.includes('PROGRESS:')) {
-          const match = line.match(/PROGRESS:(\d+)/);
-          if (match) {
-            const baseProgress = getBaseProgressForScript(scriptName);
-            const scriptProgress = parseInt(match[1]);
-            const totalProgress = baseProgress + (scriptProgress * getProgressRangeForScript(scriptName) / 100);
-            
-            updateProcessingJob(processingId, {
-              progress: Math.round(totalProgress)
-            });
-            // Persist progress to disk for cross-process visibility (SSE/file polling)
-            try {
-              const statusPath = path.join(process.cwd(), 'public', 'outputs', processingId, 'status.json');
-              await fs.writeFile(statusPath, JSON.stringify(getProcessingJob(processingId), null, 2));
-            } catch (e) {
-              console.warn('Failed to persist progress status:', e);
+      let stderr = '';
+      child.stdout.on('data', async (data) => {
+        const output = data.toString();
+        console.log(`[${scriptName}] ${output.trim()}`);
+        const lines = output.split('\n');
+        for (const line of lines) {
+          if (line.includes('PROGRESS:')) {
+            const match = line.match(/PROGRESS:(\d+)/);
+            if (match) {
+              const baseProgress = getBaseProgressForScript(scriptName);
+              const scriptProgress = parseInt(match[1]);
+              const totalProgress = baseProgress + (scriptProgress * getProgressRangeForScript(scriptName) / 100);
+              updateProcessingJob(processingId, { progress: Math.round(totalProgress) });
+              try {
+                const statusPath = path.join(process.cwd(), 'public', 'outputs', processingId, 'status.json');
+                await fs.writeFile(statusPath, JSON.stringify(getProcessingJob(processingId), null, 2));
+              } catch (e) {
+                console.warn('Failed to persist progress status:', e);
+              }
             }
           }
         }
+      });
+
+      child.stderr.on('data', (data) => {
+        const errStr = data.toString();
+        stderr += errStr;
+        console.error(`[${scriptName}] ERROR: ${errStr.trim()}`);
+      });
+
+      child.on('error', (error) => {
+        console.warn(`Python command failed to start (${cmd}):`, error.message);
+        rej(error);
+      });
+
+      child.on('close', (code) => {
+        console.log(`[${scriptName}] Process closed with code ${code} (cmd: ${cmd})`);
+        if (code === 0) res(); else rej(new Error(`Python script ${scriptName} failed with code ${code}: ${stderr}`));
+      });
+    });
+
+    (async () => {
+      let lastErr: any = null;
+      for (const cmd of candidates) {
+        if (cmd.includes(path.sep) && !require('fs').existsSync(cmd)) continue;
+        try {
+          await tryRun(cmd);
+          return resolve();
+        } catch (e) {
+          lastErr = e;
+          continue;
+        }
       }
-    });
-
-    pythonProcess.stderr.on('data', (data) => {
-      const error = data.toString();
-      stderr += error;
-      console.error(`[${scriptName}] ERROR: ${error.trim()}`);
-    });
-
-    pythonProcess.on('close', (code) => {
-      console.log(`[${scriptName}] Process closed with code ${code}`);
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(new Error(`Python script ${scriptName} failed with code ${code}: ${stderr}`));
-      }
-    });
-
-    pythonProcess.on('error', (error) => {
-      console.error(`[${scriptName}] Process error:`, error);
-      reject(error);
-    });
+      reject(new Error(`Python interpreter not found or failed to run. Tried: ${candidates.join(', ')}. If venv is removed, ensure system Python is installed and run: pip install -r python_scripts/requirements.txt`));
+    })();
   });
 }
 
