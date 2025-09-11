@@ -49,6 +49,82 @@ Troubleshooting:
 - **📈 Analytics**: Comprehensive vegetation coverage statistics and insights
 - **🖥️ Desktop Application**: Native desktop app for Mac and Windows (no browser required)
 
+## 🔬 Scientific Methodology
+
+This app follows the same scientific approach described in the Greenspace Detection Platform, adapted for local development and an API-key-free workflow.
+
+### 🛰️ Satellite Data & Quality
+- Source: Sentinel-2 Level-2A (surface reflectance)
+- Access: Microsoft Planetary Computer STAC endpoint (public)
+- Resolution: 10m per pixel (RGB + NIR)
+- Quality control: Cloud and shadow masking; water exclusion
+
+### 🌿 NDVI Calculation
+
+Normalized Difference Vegetation Index:
+
+```text
+NDVI = (NIR - Red) / (NIR + Red)
+```
+
+Baseline thresholds and enhanced sensitivity used for classification:
+
+```text
+enhanced_threshold = max(0.2, base_threshold - 0.05)
+high_density       = NDVI >= 0.55
+medium_density     = 0.35 <= NDVI < 0.55
+low_density        = 0.25 <= NDVI < 0.35
+subtle_vegetation  = 0.15 <= NDVI < 0.25
+```
+
+### 📅 Temporal Analysis (Annual)
+Selects the best low‑cloud scene per month and averages vegetation across months:
+
+```text
+for month in 1..12:
+  scene = select_best_scene(year, month, cloud_threshold=20%)
+  ndvi  = calculate_ndvi(scene.red, scene.nir)
+  veg%  = vegetation_percentage(ndvi, city_polygon)
+  monthly_results.append(veg%)
+
+annual_vegetation = average(monthly_results)
+```
+
+### 🔁 Change Analysis (Baseline vs Comparison)
+Uses the same temporal method for both years to ensure apples‑to‑apples comparisons:
+
+```text
+baseline_composite  = annual_composite(baseline_year)   # avg of 12 months
+comparison_composite = annual_composite(comparison_year)
+
+vegetation_gain   = (comparison_composite >= 0.3) & ~(baseline_composite >= 0.3)
+vegetation_loss   = (baseline_composite >= 0.3) & ~(comparison_composite >= 0.3)
+stable_vegetation = (baseline_composite >= 0.3) & (comparison_composite >= 0.3)
+```
+
+Guaranteed equation balance (mathematical consistency):
+
+```text
+final_vegetation_% = baseline_vegetation_% - loss_% + gain_%
+```
+
+### 🎯 Geographic Precision & CRS
+- Input: WGS84 (EPSG:4326) city polygons
+- Processing: UTM zone chosen by city latitude/longitude for metric accuracy
+- Output: WGS84 for web mapping
+- Alignment: Validates satellite bounds to match city polygon; sub‑pixel accuracy targeted
+
+### 🧭 Boundary Processing
+- Boundary source: OpenStreetMap (Nominatim/Overpass)
+- Format: GeoJSON polygon; validated against satellite coverage
+- Statistics and overlays are masked to the exact city polygon (not a rectangle)
+
+### 📡 STAC Integration
+- Public, no‑auth access to Sentinel‑2 via Microsoft Planetary Computer
+- Cloud filtering at scene‑level; per‑pixel SCL masking during processing
+
+These methods mirror the platform write‑up and are optimized for reliability and clarity in this app.
+
 ## 📦 Installation Options
 
 ### Option 1: Desktop Application (Recommended for End Users)
