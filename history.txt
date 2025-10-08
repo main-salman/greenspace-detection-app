@@ -1026,3 +1026,24 @@ How to run locally (no cloud):
 - Added concise Quick Start section at the top of `README.md`
 - Includes macOS/Windows one-click usage and manual steps
 - Added troubleshooting tips for Python deps and stopping background server
+
+## Multi-City Annual Averaging Accuracy Fix - 2025-10-08 ✅
+**Issue**: Batch (multi-city) annual comparison averaged zeros for failed months, depressing baselines (e.g., Manta 2020) and inflating percent change (e.g., +248%). Cloudy months were also counted with full city-area denominator, further biasing results.
+
+**Fix**:
+- Backend `src/app/api/process/route.ts` (multi-city branch):
+  - Stop zero-padding on failures; mark months invalid and compute averages over valid months only.
+  - Optional cloud filter: exclude months where `cloud_excluded_percentage > 80%` (configurable via `GREENSPACE_MAX_CLOUD_FOR_AVG`).
+  - Require a minimum number of valid months (default 3 via `GREENSPACE_MIN_VALID_MONTHS`) before computing percent change; otherwise report NaN and surface diagnostics.
+  - Persist diagnostics per city: `monthsProcessedBaseline`, `monthsProcessedCompare`, `minMonthsRequired`, `maxCloudForAvg`.
+- UI `src/components/SummaryPanel.tsx`:
+  - Display month counts next to baseline/compare values (e.g., "10.1% 7 mo").
+  - Show a warning banner when months < minimum, and guard percent change display via safe number formatting.
+
+**Impact**:
+- Annual percent change no longer inflated by failed months.
+- Users can see how many months contributed and when results are potentially unreliable due to limited data.
+
+**Env Controls**:
+- `GREENSPACE_MAX_CLOUD_FOR_AVG` (default 80)
+- `GREENSPACE_MIN_VALID_MONTHS` (default 3)

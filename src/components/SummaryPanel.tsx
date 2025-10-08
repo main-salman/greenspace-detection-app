@@ -165,9 +165,9 @@ export default function SummaryPanel({ summaries, processingId }: SummaryPanelPr
             {validSummaries.map((s, idx) => (
               <tr key={idx} className="border-b hover:bg-gray-50">
                 <td className="py-2 pr-4 whitespace-nowrap font-medium text-gray-800">{s.city.city}, {s.city.country}</td>
-                <td className="py-2 pr-4">{safeToFixed(s.baselineVegetation, 1)}%</td>
-                <td className="py-2 pr-4">{safeToFixed(s.compareVegetation, 1)}%</td>
-                <td className={`py-2 pr-4 ${((Number(s.percentChange) || 0) >= 0) ? 'text-green-600' : 'text-red-600'}`}>{safeToFixed(s.percentChange, 1)}%</td>
+                <td className="py-2 pr-4">{safeToFixed(s.baselineVegetation, 1)}%{(s as any).monthsProcessedBaseline ? <span className="text-xs text-gray-500"> {(s as any).monthsProcessedBaseline} mo</span> : null}</td>
+                <td className="py-2 pr-4">{safeToFixed(s.compareVegetation, 1)}%{(s as any).monthsProcessedCompare ? <span className="text-xs text-gray-500"> {(s as any).monthsProcessedCompare} mo</span> : null}</td>
+                <td className={`py-2 pr-4 ${((Number(s.percentChange) || 0) >= 0) ? 'text-green-600' : 'text-red-600'}`}>{safeToFixed((s as any).percentChange, 1)}%</td>
                 <td className="py-2 pr-4">{safeToFixed(s.highPct, 1)}%</td>
                 <td className="py-2 pr-4">{safeToFixed(s.medPct, 1)}%</td>
                 <td className="py-2 pr-4">{safeToFixed(s.lowPct, 1)}%</td>
@@ -183,10 +183,15 @@ export default function SummaryPanel({ summaries, processingId }: SummaryPanelPr
           <div key={idx} className="border border-gray-200 rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
               <div className="font-semibold text-gray-800">{s.city.city}, {s.city.country}</div>
-              <div className={`${(s.percentChange ?? 0) >= 0 ? 'text-green-600' : 'text-red-600'} text-sm font-semibold`}>
-                {(Number(s.percentChange) || 0) >= 0 ? '▲' : '▼'} {safeToFixed(s.percentChange, 1)}%
+              <div className={`${((Number((s as any).percentChange) || 0) >= 0) ? 'text-green-600' : 'text-red-600'} text-sm font-semibold`}>
+                {((Number((s as any).percentChange) || 0) >= 0) ? '▲' : '▼'} {safeToFixed((s as any).percentChange, 1)}%
               </div>
             </div>
+            {(((s as any).monthsProcessedBaseline ?? 0) < ((s as any).minMonthsRequired ?? 3) || ((s as any).monthsProcessedCompare ?? 0) < ((s as any).minMonthsRequired ?? 3)) && (
+              <div className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-2 mb-2">
+                Change may be unreliable due to limited valid months: baseline {(s as any).monthsProcessedBaseline || 0}, compare {(s as any).monthsProcessedCompare || 0} (min {(s as any).minMonthsRequired || 3}).
+              </div>
+            )}
             <Chart s={s} />
             
             {/* Change Visualization */}
@@ -231,5 +236,6 @@ export default function SummaryPanel({ summaries, processingId }: SummaryPanelPr
     </div>
   );
 }
+
 
 

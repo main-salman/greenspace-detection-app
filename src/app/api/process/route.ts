@@ -189,10 +189,12 @@ async function processInBackground(processingId: string, config: ProcessingConfi
         const compMonthly: any[] = [];
 
         const baseTasks = Array.from({ length: 12 }, (_, i) => i + 1).map((m) => async () => {
-          try { return await runMonthForCity(city, baselineYear, m, 'baseline'); } catch { return { veg: 0, ndviMean: 0, highPct: 0, medPct: 0, lowPct: 0, cloud: 0, hectares: 0 }; }
+          try { const r = await runMonthForCity(city, baselineYear, m, 'baseline'); return { ...r, valid: true }; }
+          catch { return { veg: null, ndviMean: null, highPct: null, medPct: null, lowPct: null, cloud: null, hectares: 0, valid: false } as any; }
         });
         const compTasks = Array.from({ length: 12 }, (_, i) => i + 1).map((m) => async () => {
-          try { return await runMonthForCity(city, compareYear, m, 'compare'); } catch { return { veg: 0, ndviMean: 0, highPct: 0, medPct: 0, lowPct: 0, cloud: 0, hectares: 0 }; }
+          try { const r = await runMonthForCity(city, compareYear, m, 'compare'); return { ...r, valid: true }; }
+          catch { return { veg: null, ndviMean: null, highPct: null, medPct: null, lowPct: null, cloud: null, hectares: 0, valid: false } as any; }
         });
 
         const [baseResults, compResults] = await Promise.all([
@@ -202,14 +204,25 @@ async function processInBackground(processingId: string, config: ProcessingConfi
 
         baseMonthly.push(...baseResults);
         compMonthly.push(...compResults);
-        const avg = (arr: number[]) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
-        const baselineVegetation = avg(baseMonthly.map(x=>x.veg));
-        const compareVegetation = avg(compMonthly.map(x=>x.veg));
-        const percentChange = baselineVegetation!==0 ? ((compareVegetation-baselineVegetation)/baselineVegetation)*100 : 0;
-        const highPct = avg(compMonthly.map(x=>x.highPct));
-        const medPct = avg(compMonthly.map(x=>x.medPct));
-        const lowPct = avg(compMonthly.map(x=>x.lowPct));
-        const cloudExcludedPct = avg(compMonthly.map(x=>x.cloud));
+
+        const MAX_CLOUD = Number(process.env.GREENSPACE_MAX_CLOUD_FOR_AVG ?? 80);
+        const MIN_MONTHS = Number(process.env.GREENSPACE_MIN_VALID_MONTHS ?? 3);
+        const isFiniteNum = (n: any) => typeof n === 'number' && isFinite(n);
+        const isGood = (m: any) => m && m.valid === true && isFiniteNum(m.veg) && (!isFiniteNum(m.cloud) || m.cloud <= MAX_CLOUD);
+
+        const baseValid = baseMonthly.filter(isGood);
+        const compValid = compMonthly.filter(isGood);
+
+        const avg = (arr: number[]) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : NaN;
+        const baselineVegetation = avg(baseValid.map(x=>x.veg as number));
+        const compareVegetation = avg(compValid.map(x=>x.veg as number));
+        const highPct = avg(compValid.map(x=>x.highPct as number));
+        const medPct = avg(compValid.map(x=>x.medPct as number));
+        const lowPct = avg(compValid.map(x=>x.lowPct as number));
+        const cloudExcludedPct = avg(compValid.map(x=>x.cloud as number));
+
+        const canCompare = baseValid.length >= MIN_MONTHS && compValid.length >= MIN_MONTHS && isFiniteNum(baselineVegetation) && baselineVegetation !== 0;
+        const percentChange = canCompare ? ((compareVegetation - baselineVegetation) / baselineVegetation) * 100 : NaN;
         
         // Generate change visualization for this city
         let changeVisualization = null;
@@ -254,18 +267,22 @@ async function processInBackground(processingId: string, config: ProcessingConfi
           baselineVegetation,
           compareVegetation,
           percentChange,
-          monthlyNdviMeanBaseline: baseMonthly.map(x=>x.ndviMean),
-          monthlyNdviMeanCompare: compMonthly.map(x=>x.ndviMean),
-          monthlyVegBaseline: baseMonthly.map(x=>x.veg),
-          monthlyVegCompare: compMonthly.map(x=>x.veg),
-          monthlyHectaresBaseline: baseMonthly.map(x=>x.hectares||0),
-          monthlyHectaresCompare: compMonthly.map(x=>x.hectares||0),
+          monthlyNdviMeanBaseline: baseMonthly.map(x=> (x && isFiniteNum(x.ndviMean)) ? x.ndviMean : null),
+          monthlyNdviMeanCompare: compMonthly.map(x=> (x && isFiniteNum(x.ndviMean)) ? x.ndviMean : null),
+          monthlyVegBaseline: baseMonthly.map(x=> (x && isFiniteNum(x.veg)) ? x.veg : null),
+          monthlyVegCompare: compMonthly.map(x=> (x && isFiniteNum(x.veg)) ? x.veg : null),
+          monthlyHectaresBaseline: baseMonthly.map(x=> (x && isFiniteNum(x.hectares)) ? x.hectares : null),
+          monthlyHectaresCompare: compMonthly.map(x=> (x && isFiniteNum(x.hectares)) ? x.hectares : null),
           highPct,
           medPct,
           lowPct,
           cloudExcludedPct,
           vegetationPct: compareVegetation,
-          changeVisualization
+          changeVisualization,
+          monthsProcessedBaseline: baseValid.length,
+          monthsProcessedCompare: compValid.length,
+          minMonthsRequired: MIN_MONTHS,
+          maxCloudForAvg: MAX_CLOUD
         });
         // Persist intermediate batch status
         updateProcessingJob(processingId, {
