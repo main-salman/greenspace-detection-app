@@ -222,7 +222,7 @@ async function processInBackground(processingId: string, config: ProcessingConfi
         const cloudExcludedPct = avg(compValid.map(x=>x.cloud as number));
 
         const canCompare = baseValid.length >= MIN_MONTHS && compValid.length >= MIN_MONTHS && isFiniteNum(baselineVegetation) && baselineVegetation !== 0;
-        const percentChange = canCompare ? ((compareVegetation - baselineVegetation) / baselineVegetation) * 100 : NaN;
+        const percentChange = canCompare ? (compareVegetation - baselineVegetation) : NaN;
         
         // Generate change visualization for this city
         let changeVisualization = null;
@@ -431,9 +431,7 @@ async function processInBackground(processingId: string, config: ProcessingConfi
         baselineVegetation: baselineAgg.averageVegetation,
         compareYear,
         compareVegetation: compareAgg.averageVegetation,
-        percentChange: baselineAgg.averageVegetation !== 0
-          ? ((compareAgg.averageVegetation - baselineAgg.averageVegetation) / baselineAgg.averageVegetation) * 100
-          : 0
+        percentChange: compareAgg.averageVegetation - baselineAgg.averageVegetation
       };
 
       // Generate vegetation change visualization
