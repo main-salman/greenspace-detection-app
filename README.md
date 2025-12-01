@@ -78,7 +78,7 @@ subtle_vegetation  = 0.15 <= NDVI < 0.25
 ```
 
 ### 📅 Temporal Analysis (Annual)
-Selects the best low‑cloud scene per month and averages vegetation across months:
+Selects the best low‑cloud scene per month and averages vegetation across months. As of 2025‑10‑08, the annual comparison methodology was improved to avoid bias from failed/over‑cloudy months (details below).
 
 ```text
 for month in 1..12:
@@ -107,6 +107,27 @@ Guaranteed equation balance (mathematical consistency):
 ```text
 final_vegetation_% = baseline_vegetation_% - loss_% + gain_%
 ```
+
+### ✅ Annual Comparison Methodology Update (2025‑10‑08)
+
+In batch (multi‑city) mode, we now compute annual averages and percent change using only valid months and optional cloud filtering:
+
+- **Valid‑month averaging**: Months that fail to process no longer count as 0%. We average only over months that produced a valid vegetation result.
+- **Cloud filtering (optional)**: Months with excessive cloud/shadow/water masking are excluded from the annual average if their cloud‑excluded share exceeds a threshold (default 80%).
+- **Minimum months requirement**: Percent change is computed only if both years have at least a minimum number of valid months (default 3). Otherwise, the UI warns that data is insufficient.
+- **Diagnostics surfaced**: The summary table shows month counts next to baseline/compare values (e.g., "10.1% 7 mo") and displays a banner when months are below the minimum.
+
+Environment variables (server‑side) control these behaviors:
+
+```bash
+# Exclude months where cloud_excluded_percentage > this value (percent)
+GREENSPACE_MAX_CLOUD_FOR_AVG=80
+
+# Require at least this many valid months in each year to compute percent change
+GREENSPACE_MIN_VALID_MONTHS=3
+```
+
+Rationale: Previously, failed months were averaged as zeros, which could depress baselines (e.g., 2020) and inflate the reported change. The updated approach yields more robust, interpretable annual comparisons.
 
 ### 🎯 Geographic Precision & CRS
 - Input: WGS84 (EPSG:4326) city polygons

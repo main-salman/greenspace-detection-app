@@ -1047,3 +1047,14 @@ How to run locally (no cloud):
 **Env Controls**:
 - `GREENSPACE_MAX_CLOUD_FOR_AVG` (default 80)
 - `GREENSPACE_MIN_VALID_MONTHS` (default 3)
+
+## Stop Script Creation - 2025-10-10 ✅
+- Created `stop-app-mac.sh` script to gracefully stop the Next.js dev server
+- Reads PID from `.dev_pid` file created by `run-app-mac.sh`
+- Features:
+  - Graceful shutdown with `kill` command, then force kill if needed
+  - Automatic cleanup of `.dev_pid` file
+  - Fallback to port-based detection if PID file missing
+  - Clear status messages for user feedback
+- Made script executable with `chmod +x`
+- Provides clean way to stop background server without manual PID lookup
